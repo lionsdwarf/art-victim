@@ -3,7 +3,8 @@ App.Views.GraphicModelView = Backbone.View.extend({
   initialize: function() {
     this.template = Handlebars.compile($('#graphic-template').html());
     this.render();
-    this.$el.dblclick(this.renderToCanvas)
+    this.$el.dblclick(this.renderToCanvas);
+    $('#save').click(this.saveImgLoc);
   },
   render: function() {
     var graphicTemplate = this.template(this.model.toJSON());
@@ -11,11 +12,18 @@ App.Views.GraphicModelView = Backbone.View.extend({
   },
   renderToCanvas: function(graphicModel) {
     var clone = this.cloneNode(true);
-    console.log(clone)
+    var sortableList = $('#sortable');
+    // newSoundView.$el.attr('id', 'top-pad-' + this.counter);
+    var sortable = $('<li>')
+                          .html('LI')
+                          .appendTo(sortableList)
+                          .sortable();
+    $(clone).draggable({ });
     $('#canvas').append(clone);
-    // addSortable(graphicModel);
   }
-  // addSortable: function(graphicModel) {
 
-  // }
 });
+
+
+
+
