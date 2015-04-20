@@ -1,8 +1,8 @@
 var models             = require('./models'),
     Library            = models.libraries,
     Graphic            = models.graphics,
-    backgroundsUrl     = '/public/graphics/backgrounds',
-    musicUrl           = '/public/graphics/music';
+    backgroundsUrl     = '/graphics/backgrounds',
+    musicUrl           = '/graphics/music';
 
 var libraries = [
   {
