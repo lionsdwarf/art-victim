@@ -8,14 +8,13 @@ $(function() {
   App.graphicsCollectionView = new App.Views.GraphicsCollectionView({ collection: App.graphicsCollection });
   App.graphicsCollection.fetch();
 
-  $('.draggable').draggable();
-  $('#droppable').droppable();
-
+  $('#sortable').sortable();
 
 });
 
 var App = {
   Models: {},
   Collections: {},
-  Views: {}
+  Views: {},
+  Composition: []
 }
