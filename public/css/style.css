@@ -1,7 +1,9 @@
 .draggable {
   width: 200px;
   // black and white
-  padding: 0.5em; float: left; margin: 0 10px 10px 0; 
+  padding: 0.5em; 
+  float: left; 
+  margin: 0 10px 10px 0;   
 }
 
 /* #draggable, #draggable2, #draggable3, #set div { width: 90px; height: 90px; padding: 0.5em; float: left; margin: 0 10px 10px 0; background: blue; }

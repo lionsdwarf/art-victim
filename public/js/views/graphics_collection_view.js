@@ -1,5 +1,5 @@
 App.Views.GraphicsCollectionView = Backbone.View.extend({
-  el: '#library',
+  el: '#graphics-test',
   initialize: function() {
     this.listenTo(this.collection, 'add', this.renderOneGraphicView);
   },
@@ -7,10 +7,10 @@ App.Views.GraphicsCollectionView = Backbone.View.extend({
     var newGraphicView = new App.Views.GraphicModelView({ model: graphicModel });
     //newGraphicView.$el.attr //FINISH THIS
     this.$el.append(newGraphicView.el);
-    $('#library').hide();
+    // $('#graphics-test').hide();
   },
   showLibrary: function() {
-    $('#library').fadeIn(300);
-  },
+    $('#graphics-test').fadeIn(500);
+  }
 
 });
