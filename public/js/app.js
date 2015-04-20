@@ -8,7 +8,11 @@ $(function() {
   App.graphicsCollectionView = new App.Views.GraphicsCollectionView({ collection: App.graphicsCollection });
   App.graphicsCollection.fetch();
 
-  $('#sortable').sortable();
+  // $( "#sortable" ).sortable({ 
+  //   stop: function(event, ui) {
+  //       console.log(ui.item.index());
+  //   }
+  // });
 
 });
 
