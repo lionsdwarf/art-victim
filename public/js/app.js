@@ -8,17 +8,15 @@ $(function() {
   App.graphicsCollectionView = new App.Views.GraphicsCollectionView({ collection: App.graphicsCollection });
   App.graphicsCollection.fetch();
 
-  // $( "#sortable" ).sortable({ 
-  //   stop: function(event, ui) {
-  //       console.log(ui.item.index());
-  //   }
-  // });
+  $('#save').click(recorder.recordComposition);
 
+  
 });
 
 var App = {
   Models: {},
   Collections: {},
   Views: {},
-  Composition: []
+  placedGraphics: [],
+  savedComposition: []
 }
