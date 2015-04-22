@@ -24,6 +24,8 @@
    <script src="js/views/graphics_collection_view.js"></script>
    <script src="js/collections/graphics_collection.js"></script>
 
+   <script src="js/composition_recorder.js"></script>
+
   <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -32,7 +34,7 @@
   <div id="libraries"></div>
 
   <template id="graphic-template">
-      <img id="{{name}}" class= "draggable" src="{{url}}" alt="{{name}}" data-name="{{name}}" >
+      <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" >
   </template>
 
 <template id="library-template">
@@ -44,15 +46,15 @@
   <img src="{{url}}" alt="{{name}}">
 </template>
 
-<div id="graphics-test"></div>
+<div id="graphics"></div>
 
 <button id="save"></button>
 
 <span id="canvas"></span>
 
-<ul id="sortable"></ul>
+<ul id="sortable">LAYERS</ul>
 
-  <img id="droppable" src="/graphics/backgrounds/dead_sea_pink.jpg" alt="test">
+<!--   <img id="droppable" src="/graphics/backgrounds/dead_sea_pink.jpg" alt="test"> -->
 
 <!--   <img id="Snoop" class="draggable" src="/graphics/music/snoop_murder_wt_case.png" alt="snooptest">
 
