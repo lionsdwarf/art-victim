@@ -25,13 +25,42 @@
    <script src="js/collections/graphics_collection.js"></script>
 
    <script src="js/composition_recorder.js"></script>
-
+   <script src="js/views/home_view.js"></script>
+   
   <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
 
+  <div id="home-view"></div>
+
   <div id="libraries"></div>
+
+  <div id="session"></div>
+  
+  <div id="graphics"></div>
+  
+  <button id="save"></button>
+  
+  <span id="canvas"></span>
+  
+  <ul id="sortable">LAYERS</ul>
+
+  <template id="login-signup-template">
+    <div>~Sign~up~</div><br>
+    <input type="text" id="signup-username" placeholder="username"><br>
+    <input type="password" id="signup-password" placeholder="password"><br>
+    <button id="signup-button">~Create~user~</button><br>
+    <div>~Log~in~</div><br>
+    <input type="text" id="login-username" placeholder="username"><br>
+    <input type="password" id="login-password" placeholder="password"><br>
+    <button id="login-button">~Enter~</button>
+  </template>
+
+  <template id="user-template">
+    <div>{{username}}</div><br>
+    <div id="logout">~Logout~</div>
+  </template>
 
   <template id="graphic-template">
       <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" >
@@ -46,23 +75,9 @@
   <img src="{{url}}" alt="{{name}}">
 </template>
 
-<div id="graphics"></div>
-
-<button id="save"></button>
-
-<span id="canvas"></span>
-
-<ul id="sortable">LAYERS</ul>
-
-<!--   <img id="droppable" src="/graphics/backgrounds/dead_sea_pink.jpg" alt="test"> -->
-
-<!--   <img id="Snoop" class="draggable" src="/graphics/music/snoop_murder_wt_case.png" alt="snooptest">
-
-  <img id="Elvis" class="draggable" src="/graphics/music/elvis1.png" alt="Elvis"> -->
-
-
-  <!-- <img id="droppable" src="/graphics/backgrounds/behind_the_hills.jpg" alt="test"> -->
-  
+<template id="load-template">
+  <img src="{{url}}" alt="{{name}}" style="{{style}}">
+</template>
 
 </body>
 </html>

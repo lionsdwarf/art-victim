@@ -1,7 +1,10 @@
 var express      = require('express'),
-    models       = require('../models'),
-    Library      = models.libraries,
-    Graphic      = models.graphics;
+    models       = require('../models');
+
+var Library      = models.libraries,
+    Graphic      = models.graphics,
+    User         = models.users,
+    Composition  = models.compositions;
 
 var graphicRouter = express.Router();
 
