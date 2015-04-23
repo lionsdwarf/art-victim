@@ -2,23 +2,23 @@ App.Views.HomeView = Backbone.View.extend({
   el: '#session',
 
   initialize: function() {
-    userTemplate = Handlebars.compile($('#user-template').html());
     loginSignupTemplate = Handlebars.compile($('#login-signup-template').html());
-    
     this.fetchAndRenderSession();
-
   },
 
   events: {
     'click #signup-button' : 'signup',
-    'click #login-button' : 'login',
-    'click #logout' : 'logoutUser'
+    'click #login-button' : 'login'
   },
 
   fetchAndRenderSession: function() {
     $.get('/users/current_user').done(function(user) {
       if (user) {
-        $('#session').html(userTemplate(user));
+        var userModel = new App.Models.UserModel({ id: user.id });  
+        new App.Views.UserModelView({ model: userModel });
+        var userCompositionsCollection = new App.Collections.UserCompositionsCollection;
+        new App.Views.UserCompositionsCollectionView({ collection: userCompositionsCollection });
+        userCompositionsCollection.fetch();
       } else {
         $('#session').html(loginSignupTemplate());
       }
@@ -67,16 +67,6 @@ App.Views.HomeView = Backbone.View.extend({
         var err = response.responseJSON;
         alert(err.err + ' - ' + err.msg);
       });
-  },
-
-  logoutUser: function() {
-
-    $.ajax({
-      url: '/users/sessions',
-      method: 'DELETE',
-      })
-        .done(this.fetchAndRenderSession);
   }
-
 
 });

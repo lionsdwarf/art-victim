@@ -1,11 +1,11 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
   var compositions = sequelize.define("compositions", {
-    name: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty: {msg: 'Valid composition name required'}
+        notEmpty: {msg: 'Valid composition title required'}
       }
     },
     composition: {
