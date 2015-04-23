@@ -8,4 +8,4 @@ App.Views.LibraryModelView = Backbone.View.extend({
     var libraryTemplate = this.template(this.model.toJSON());
     this.$el.html(libraryTemplate);
   }
-})
+});

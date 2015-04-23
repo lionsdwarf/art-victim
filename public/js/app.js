@@ -7,15 +7,16 @@ $(function() {
   App.graphicsCollection = new App.Collections.GraphicsCollection;
   App.graphicsCollectionView = new App.Views.GraphicsCollectionView({ collection: App.graphicsCollection });
   App.graphicsCollection.fetch();
-
-  $('.draggable').draggable();
-  $('#droppable').droppable();
-
-
+  
+  App.homeView = new App.Views.HomeView;
+  
 });
 
 var App = {
   Models: {},
   Collections: {},
-  Views: {}
+  Views: {},
+  placedGraphics: [],
+  savedComposition: [],
+  currentUser: []
 }
