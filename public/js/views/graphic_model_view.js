@@ -63,7 +63,7 @@ App.Views.GraphicModelView = Backbone.View.extend({
         "top" : "150px",
         "left" : "100px",
         "marign" : "auto",
-        "width" : "250px",
+        "height" : "300px",
         "position" : "absolute"
       });
 
