@@ -3,18 +3,10 @@ var express      = require('express'),
     session      = require('express-session'),
     models       = require('../models');
 
-var Library      = models.libraries,
-    Graphic      = models.graphics,
-    User         = models.users,
+var User         = models.users,
     Composition  = models.compositions;
 
 var userRouter = express.Router();
-
-userRouter.use(session({
-  secret: 'thisdoesntmatterordoesit',
-  resave: false,
-  saveUninitialized: true
-}));
 
 var restrictAccess = function(req, res, next) {
   var sessionID = parseInt( req.session.currentUser);  
@@ -114,7 +106,7 @@ userRouter.post('/:id/compositions', function (req, res) {
   if (req.session.currentUser) {
     Composition
       .create({
-        name: req.body.name,
+        title: req.body.title,
         composition: req.body.composition,
         user_id: req.session.currentUser
       })

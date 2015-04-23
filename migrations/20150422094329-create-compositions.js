@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      name: {
+      title: {
         type: DataTypes.STRING
       },
       composition: {
