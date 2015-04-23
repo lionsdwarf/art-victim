@@ -6,11 +6,9 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
    <script href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css"></script>
-   <script href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.structure.min.css"></script>
-   <script href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.theme.min.css"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
    <script src="js/app.js"></script>
 
@@ -26,6 +24,8 @@
 
    <script src="js/composition_recorder.js"></script>
    <script src="js/views/home_view.js"></script>
+   <script src="js/models/user_model.js"></script>
+   <script src="js/views/user_model_view.js"></script>
    
   <link rel="stylesheet" href="css/style.css">
 
@@ -48,41 +48,46 @@
 
   <template id="login-signup-template">
     <div>~Sign~up~</div><br>
-    <input type="text" id="signup-username" placeholder="username"><br>
-    <input type="password" id="signup-password" placeholder="password"><br>
-    <button id="signup-button">~Create~user~</button><br>
+      <input type="text" id="signup-username" placeholder="username"><br>
+      <input type="password" id="signup-password" placeholder="password"><br>
+      <button id="signup-button">~Create~user~</button><br>
     <div>~Log~in~</div><br>
-    <input type="text" id="login-username" placeholder="username"><br>
-    <input type="password" id="login-password" placeholder="password"><br>
-    <button id="login-button">~Enter~</button>
+      <input type="text" id="login-username" placeholder="username"><br>
+      <input type="password" id="login-password" placeholder="password"><br>
+      <button id="login-button">~Enter~</button>
   </template>
 
   <template id="user-template">
     <div>{{username}}</div><br>
-    <div id="logout">~Logout~</div>
+    <div id="logout">~Logout~</div><br>
+    <div id="user-save">~Save~</div>
   </template>
 
   <template id="graphic-template">
       <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" >
   </template>
 
-<template id="library-template">
-  <section id="{{id}}">{{name}}</section> 
-    <div id="graphics"></div>
-</template>
-
-<template id="placed-graphic-template">
-  <img src="{{url}}" alt="{{name}}">
-</template>
-
-<template id="load-template">
-  <img src="{{url}}" alt="{{name}}" style="{{style}}">
-</template>
-
-<template id="save-template">
-  <input type="text" id="title" placeholder="title"><br>
-  <button id="save-to-db">~Save~</button><br>
-</template>
+  <template id="library-template">
+    <section id="{{id}}">{{name}}</section> 
+      <div id="graphics"></div>
+  </template>
+  
+  <template id="placed-graphic-template">
+    <img src="{{url}}" alt="{{name}}">
+  </template>
+  
+  <template id="load-template">
+    <img src="{{url}}" alt="{{name}}" style="{{style}}">
+  </template>
+  
+  <template id="save-template">
+    <input type="text" id="title" placeholder="title"><br>
+    <button id="save-to-db">~Save~</button><br>
+  </template>
+  
+  <template id="load-composition">
+    <img src="{{url}}" alt="{{title}}" style="{{}}">
+  </template>
 
 </body>
 </html>

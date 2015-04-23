@@ -10,7 +10,7 @@ $(function() {
   
   App.homeView = new App.Views.HomeView;
 
-  $('#save').click(recorder.recordComposition);
+  // $('#save').click(recorder.recordComposition);
 
   
 });

@@ -1,3 +1,4 @@
 App.Models.UserModel = Backbone.Model.extend({
-  initialize: function() {}
+  urlRoot: '/users',
+  initialize: function() {},
 });

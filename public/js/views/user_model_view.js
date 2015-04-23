@@ -1,10 +1,16 @@
 App.Views.UserModelView = Backbone.View.extend({
   el:'#session',
 
-  initialize: function() {},
+  initialize: function() {
+    this.userTemplate = Handlebars.compile($('#user-template').html());
+    this.saveTemplate = Handlebars.compile($('#save-template').html());
+    $('#session').html(this.userTemplate(this.model.id));
+  },
 
   events: {
-    'click #logout' : 'logoutUser'
+    'click #logout' : 'logoutUser',
+    'click #user-save' : 'renderSaveModal',
+    'click #save-to-db' : 'recordComposition'
   },
 
   recordComposition: function() {
@@ -27,21 +33,31 @@ App.Views.UserModelView = Backbone.View.extend({
         composedGraphic = JSON.stringify(composedGraphic);
         App.savedComposition.push(composedGraphic);
       }
-    recorder.saveComposition();
+    this.saveComposition();
+    $('#session').html(this.userTemplate(this.model.id))
   },
 
   saveComposition: function() {
     var title = $('#title').val();
     var composition = App.savedComposition;
+    var stringifiedComposition = JSON.stringify(composition);
+    var userId = this.model.id;
+    var url = '/users/' + userId + '/compositions';
+
     $.ajax({ 
-        url: '/users/3/compositions',
+        url: url,
         method: 'POST',
         data: {
             title: title,
-            composition: composition,
-            user_id: 3
+            composition: stringifiedComposition,
+            user_id: userId
         }
     });
+    
+  },
+
+  renderSaveModal: function() {
+    $('#session').html(this.saveTemplate());
   },
 
   logoutUser: function() {
