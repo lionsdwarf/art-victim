@@ -14,8 +14,11 @@ App.Views.HomeView = Backbone.View.extend({
   fetchAndRenderSession: function() {
     $.get('/users/current_user').done(function(user) {
       if (user) {
-        var model = new App.Models.UserModel({ id: user.id })   
-        new App.Views.UserModelView({ model: model })
+        var userModel = new App.Models.UserModel({ id: user.id });  
+        new App.Views.UserModelView({ model: userModel });
+        var userCompositionsCollection = new App.Collections.UserCompositionsCollection;
+        new App.Views.UserCompositionsCollectionView({ collection: userCompositionsCollection });
+        userCompositionsCollection.fetch();
       } else {
         $('#session').html(loginSignupTemplate());
       }

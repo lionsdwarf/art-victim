@@ -1,25 +1,33 @@
 .draggable {
   width: 200px;
-  // black and white
   padding: 0.5em; 
   float: left; 
   margin: 0 10px 10px 0;   
 }
 
 .graphic {
-  top : 150px,
-  left : 2000px,
-  marign : auto,
-  width : auto,
-  position : absolute
+  
+  max-width: 1200px;
+  max-height: 1050px;
+  margin: auto;
+  width : auto;
+  position : absolute;
 }
 
-/*.background {
-  top: 120px;
-  left: 450px;
-  width : auto,
-  position : absolute
-}*/
+.background {
+  top : 120px;
+  left : 400px;
+  margin : auto;
+  width : auto;
+  position : absolute;
+  z-index : -2;
+  max-width : 900px
+}
+
+.model-graphic {
+  max-width: 300px;
+  max-height: 400px;
+}
 
 #save {
   width: 50px;
@@ -38,11 +46,20 @@ li {
   list-style-type: none; 
 }
 
- #sortable { margin: 0; padding: 0; width: 100%; }
-  #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-  #sortable li span { position: absolute; margin-left: -1.3em; }
+ #sortable { 
+  margin: 0; 
+  padding: 0; 
+  width: 100%;
 
-/* #draggable, #draggable2, #draggable3, #set div { width: 90px; height: 90px; padding: 0.5em; float: left; margin: 0 10px 10px 0; background: blue; }
-  #draggable, #draggable2, #draggable3 { margin-bottom:20px; }
-  #set { clear:both; float:left; width: 368px; height: 120px; }
-  p { clear:both; margin:0; padding:1em 0; }*/
+   margin: 0 3px 3px 3px; 
+    padding: 0.4em; 
+    padding-left: 1.5em; 
+    font-size: 1.4em; 
+    height: 18px;
+
+        top : 150px;
+        right : 450px;
+        width : 150px;
+        position : absolute  
+}
+

@@ -9,9 +9,6 @@ $(function() {
   App.graphicsCollection.fetch();
   
   App.homeView = new App.Views.HomeView;
-
-  // $('#save').click(recorder.recordComposition);
-
   
 });
 
@@ -20,5 +17,6 @@ var App = {
   Collections: {},
   Views: {},
   placedGraphics: [],
-  savedComposition: []
+  savedComposition: [],
+  currentUser: []
 }

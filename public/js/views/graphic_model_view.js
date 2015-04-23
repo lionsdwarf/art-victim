@@ -24,20 +24,9 @@ App.Views.GraphicModelView = Backbone.View.extend({
       this.counter++;
       var backgroundId = background.attr('id') + this.counter;
       background.attr('id', backgroundId);
-
       background.addClass('background savable');
-
+      background.removeClass('model-graphic');
       $('body').append(background);
-
-      $(background).css({
-        "top" : "120px",
-        "left" : "2000px",
-        "marign" : "auto",
-        "width" : "auto",
-        "position" : "absolute",
-        "z-index" : "-2"
-      });
-      //identifies graphic placed to canvas for saving later
       App.placedGraphics.push(backgroundId);
   },
 
@@ -52,12 +41,7 @@ App.Views.GraphicModelView = Backbone.View.extend({
         console.log(ui.item.index());
       }
     });
-         $(sortableList).css({
-        "top" : "150px",
-        "right" : "450px",
-        "width" : "150px",
-        "position" : "absolute"
-      });    
+  
   },
 
   generateGraphic: function() {
@@ -68,23 +52,20 @@ App.Views.GraphicModelView = Backbone.View.extend({
       this.counter++;
       var graphicId = graphic.attr('id') + this.counter;
       graphic.attr('id', graphicId);
-      
-      // var graphicName = this.model.attributes.name;
       graphic.addClass('graphic savable');
+      graphic.removeClass('model-graphic');
 
       //adds draggable functionality & appends to canvas
       graphic.draggable();
       $('body').append(graphic);
      
-      
       $(graphic).css({
         "top" : "150px",
-        "left" : "2000px",
+        "left" : "100px",
         "marign" : "auto",
-        "width" : "auto",
+        "width" : "250px",
         "position" : "absolute"
       });
- 
 
     $('.graphic').on( "dblclick", function() {
       $( this ).css({

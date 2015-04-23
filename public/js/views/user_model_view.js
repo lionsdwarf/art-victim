@@ -5,6 +5,7 @@ App.Views.UserModelView = Backbone.View.extend({
     this.userTemplate = Handlebars.compile($('#user-template').html());
     this.saveTemplate = Handlebars.compile($('#save-template').html());
     $('#session').html(this.userTemplate(this.model.id));
+    App.currentUser = this.model.id;
   },
 
   events: {
@@ -23,14 +24,14 @@ App.Views.UserModelView = Backbone.View.extend({
         composedGraphic.name = array[i];
         composedGraphic.url = $(graphic).data('url');
         composedGraphic.style = 
-                            "width: " + $(graphic).width() + "px; " +
-                            "height: " + $(graphic).height() + "px; " +
-                            "left: " + $(graphic).position().left + "px; " +
-                            "top: " + $(graphic).position().top + "px; " +
-                            "z-index: " + $(graphic).css('z-index') + "; " +
-                            "position: absolute;";
+          "width: " + $(graphic).width() + "px; " +
+          "height: " + $(graphic).height() + "px; " +
+          "left: " + $(graphic).position().left + "px; " +
+          "top: " + $(graphic).position().top + "px; " +
+          "z-index: " + $(graphic).css('z-index') + "; " +
+          "position: absolute;";
 
-        composedGraphic = JSON.stringify(composedGraphic);
+        // composedGraphic = JSON.stringify(composedGraphic);
         App.savedComposition.push(composedGraphic);
       }
     this.saveComposition();
@@ -61,7 +62,6 @@ App.Views.UserModelView = Backbone.View.extend({
   },
 
   logoutUser: function() {
-
     $.ajax({
       url: '/users/sessions',
       method: 'DELETE',

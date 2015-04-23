@@ -26,6 +26,13 @@
    <script src="js/views/home_view.js"></script>
    <script src="js/models/user_model.js"></script>
    <script src="js/views/user_model_view.js"></script>
+
+   <script src="js/models/user_composition_model.js"></script>
+   <script src="js/views/user_composition_model_view.js"></script>
+   <script src="js/views/user_compositions_collection_view.js"></script>
+   <script src="js/collections/user_compositions_collection.js"></script>
+   <script src=""></script>
+
    
   <link rel="stylesheet" href="css/style.css">
 
@@ -40,18 +47,19 @@
   
   <div id="graphics"></div>
   
-  <button id="save"></button>
-  
   <span id="canvas"></span>
   
   <ul id="sortable">LAYERS</ul>
 
+  <div id="user-compositions"></div>
+
   <template id="login-signup-template">
-    <div>~Sign~up~</div><br>
+    <br>
+    <div>~Sign~up~</div>
       <input type="text" id="signup-username" placeholder="username"><br>
       <input type="password" id="signup-password" placeholder="password"><br>
-      <button id="signup-button">~Create~user~</button><br>
-    <div>~Log~in~</div><br>
+      <button id="signup-button">~Create~user~</button><br><br>
+    <div>~Log~in~</div>
       <input type="text" id="login-username" placeholder="username"><br>
       <input type="password" id="login-password" placeholder="password"><br>
       <button id="login-button">~Enter~</button>
@@ -60,11 +68,11 @@
   <template id="user-template">
     <div>{{username}}</div><br>
     <div id="logout">~Logout~</div><br>
-    <div id="user-save">~Save~</div>
+    <div id="user-save">~Save~</div><br>
   </template>
 
   <template id="graphic-template">
-      <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" >
+      <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="model-graphic">
   </template>
 
   <template id="library-template">
@@ -85,8 +93,8 @@
     <button id="save-to-db">~Save~</button><br>
   </template>
   
-  <template id="load-composition">
-    <img src="{{url}}" alt="{{title}}" style="{{}}">
+  <template id="composition-template">
+    <img id="{{name}}" src="{{url}}" alt="{{name}}" style="{{style}}">
   </template>
 
 </body>
