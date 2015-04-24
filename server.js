@@ -34,8 +34,10 @@ app.use('/graphics', graphicRouter);
 app.use('/users', userRouter);
 app.use('/compositions', compositionRouter);
 
-app.listen(5000, function() {
-  console.log('Server live on port 5000...')
+app.set('port', process.env.PORT || 5000);
+
+app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + app.get('port') );
 });
 
 module.exports = app;

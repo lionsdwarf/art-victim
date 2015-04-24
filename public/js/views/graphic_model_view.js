@@ -1,5 +1,5 @@
 App.Views.GraphicModelView = Backbone.View.extend({
-  // className: 'graphic',
+  className: 'graphic-div',
   counter: 0,
   initialize: function() {
     this.template = Handlebars.compile($('#graphic-template').html());
@@ -60,8 +60,8 @@ App.Views.GraphicModelView = Backbone.View.extend({
       $('body').append(graphic);
      
       $(graphic).css({
-        "top" : "150px",
-        "left" : "100px",
+        "top" : "300px",
+        "left" : "500px",
         "marign" : "auto",
         "height" : "300px",
         "position" : "absolute"

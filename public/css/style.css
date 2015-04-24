@@ -1,3 +1,11 @@
+body {
+  font-family: 'Abel', sans-serif;
+}
+
+.heading {
+  text-align: center;
+}
+
 .draggable {
   width: 200px;
   padding: 0.5em; 
@@ -5,13 +13,17 @@
   margin: 0 10px 10px 0;   
 }
 
-.graphic {
-  
-  max-width: 1200px;
-  max-height: 1050px;
-  margin: auto;
+/*.graphic {
+  left: 400px;
   width : auto;
   position : absolute;
+  top: 200px;
+  height: 300px;
+  margin: auto; 
+}*/
+
+#graphics {
+  margin-top: 550px;
 }
 
 .background {
@@ -29,10 +41,9 @@
   max-height: 400px;
 }
 
-#save {
-  width: 50px;
-  height: 50px;
-  top: 50px;
+.graphic-div {
+  display: inline-block;
+  padding: 0.1em;
 }
 
 li {
@@ -45,13 +56,20 @@ li {
   border-radius: 0.1em; 
 }
 
+#layer-list {
+  display: inline-block;
+  text-align: right;
+  float: right;
+}
+
 #sortable { 
   padding-left: 1.5em;
   padding-right: 1.5em; 
   font-size: 1.0em; 
   top : 150px;
-  right : 1050px;
   width : 150px;
-  position : absolute  
+/*  position : absolute*/  
 }
+
+
 
