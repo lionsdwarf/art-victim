@@ -28,12 +28,15 @@ body {
 
 .background {
   top : 120px;
-  left : 400px;
+  left: 7.4em;
+  /*left : 400px;*/
   margin : auto;
   width : auto;
   position : absolute;
   z-index : -2;
-  max-width : 900px
+  max-width : 900px;
+  text-align: center;
+  display: inline-block;
 }
 
 .model-graphic {

@@ -18,12 +18,12 @@
    <script src="js/views/libraries_collection_view.js"></script>
    <script src="js/collections/libraries_collection.js"></script>
 
+
    <script src="js/models/graphic_model.js"></script>
    <script src="js/views/graphic_model_view.js"></script>
    <script src="js/views/graphics_collection_view.js"></script>
    <script src="js/collections/graphics_collection.js"></script>
 
-   <script src="js/composition_recorder.js"></script>
    <script src="js/views/home_view.js"></script>
    <script src="js/models/user_model.js"></script>
    <script src="js/views/user_model_view.js"></script>
@@ -80,8 +80,9 @@
   </template>
 
   <template id="library-template">
-    <section id="{{id}}"></section> 
-      <div id="graphics"></div>
+    <section id="{{id}}">{{name}}</section> 
+      <div id="{{name}}-graphics"></div>
+        <div id="library"></div>
   </template>
   
   <template id="placed-graphic-template">

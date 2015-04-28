@@ -5,7 +5,6 @@ App.Views.UserCompositionModelView = Backbone.View.extend({
   },
 
   renderComposedImage: function() {
-    debugger;
     var compositionArray = JSON.parse(this.model.attributes.composition);
     console.log(compositionArray);
       

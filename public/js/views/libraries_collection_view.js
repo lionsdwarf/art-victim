@@ -6,5 +6,6 @@ App.Views.LibrariesCollectionView = Backbone.View.extend({
     renderOneLibraryView: function(libraryModel) {
       var newLibraryView = new App.Views.LibraryModelView({ model: libraryModel });
       this.$el.append(newLibraryView.el);
-    }
+    },
+
 });
