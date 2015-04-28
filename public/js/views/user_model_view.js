@@ -42,6 +42,7 @@ App.Views.UserModelView = Backbone.View.extend({
     var title = $('#title').val();
     var composition = App.savedComposition;
     var stringifiedComposition = JSON.stringify(composition);
+    console.log(stringifiedComposition);
     var userId = this.model.id;
     var url = '/users/' + userId + '/compositions';
 

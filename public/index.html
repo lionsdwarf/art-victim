@@ -9,6 +9,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+   <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 
    <script src="js/app.js"></script>
 
@@ -17,12 +18,12 @@
    <script src="js/views/libraries_collection_view.js"></script>
    <script src="js/collections/libraries_collection.js"></script>
 
+
    <script src="js/models/graphic_model.js"></script>
    <script src="js/views/graphic_model_view.js"></script>
    <script src="js/views/graphics_collection_view.js"></script>
    <script src="js/collections/graphics_collection.js"></script>
 
-   <script src="js/composition_recorder.js"></script>
    <script src="js/views/home_view.js"></script>
    <script src="js/models/user_model.js"></script>
    <script src="js/views/user_model_view.js"></script>
@@ -39,36 +40,39 @@
 </head>
 <body>
 
-  <div id="home-view"></div>
+  <h1 id="heading" class="heading">Art Victim</h1>
 
-  <div id="libraries"></div>
+  <div id="home-view"></div>
+ 
+  <div id="layer-list">
+    <ul id="sortable">LAYERS</ul>
+  </div>
 
   <div id="session"></div>
   
   <div id="graphics"></div>
   
+  <div id="libraries"></div>
 <!--   <span id="canvas"></span> -->
-  
-  <ul id="sortable">LAYERS</ul>
 
   <div id="user-compositions"></div>
 
   <template id="login-signup-template">
     <br>
-    <div>~Sign~up~</div>
-      <input type="text" id="signup-username" placeholder="username"><br>
-      <input type="password" id="signup-password" placeholder="password"><br>
-      <button id="signup-button">~Create~user~</button><br><br>
-    <div>~Log~in~</div>
-      <input type="text" id="login-username" placeholder="username"><br>
-      <input type="password" id="login-password" placeholder="password"><br>
-      <button id="login-button">~Enter~</button>
+    <div></div>
+      <input type="text" id="signup-username" placeholder="Create username"><br>
+      <input type="password" id="signup-password" placeholder="Create password"><br>
+      <button id="signup-button">Create Victim</button><br><br>
+    <div></div>
+      <input type="text" id="login-username" placeholder="Login username"><br>
+      <input type="password" id="login-password" placeholder="Login password"><br>
+      <button id="login-button">Enter</button>
   </template>
 
   <template id="user-template">
     <div>{{username}}</div><br>
-    <div id="logout">~Logout~</div><br>
-    <div id="user-save">~Save~</div><br>
+    <div id="logout">Logout</div><br>
+    <div id="user-save">Save</div><br>
   </template>
 
   <template id="graphic-template">
@@ -77,7 +81,8 @@
 
   <template id="library-template">
     <section id="{{id}}">{{name}}</section> 
-      <div id="graphics"></div>
+      <div id="{{name}}-graphics"></div>
+        <div id="library"></div>
   </template>
   
   <template id="placed-graphic-template">
@@ -90,7 +95,7 @@
   
   <template id="save-template">
     <input type="text" id="title" placeholder="title"><br>
-    <button id="save-to-db">~Save~</button><br>
+    <button id="save-to-db">Save</button><br>
   </template>
   
   <template id="composition-template">
