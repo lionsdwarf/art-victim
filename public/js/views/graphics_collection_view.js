@@ -1,18 +1,17 @@
 App.Views.GraphicsCollectionView = Backbone.View.extend({
-  // el: '#graphics',
-  initialize: function(libraryModel) {
+
+  initialize: function() {
     this.listenTo(this.collection, 'add', this.renderOneGraphicView);
-    var collectionName = libraryModel.collection.models[0].attributes.name;
-    this.el = '#' + collectionName + '-graphics';
-    debugger
+    this.collection.fetch();
   },
+
   renderOneGraphicView: function(graphicModel) {
     var newGraphicView = new App.Views.GraphicModelView({ model: graphicModel });
     this.$el.append(newGraphicView.el);
-    // $('#graphics-test').hide();
   },
-  showLibrary: function() {
-    $('#graphics').fadeIn(500);
-  }
+
+  // showLibrary: function() {
+  //   $('#graphics').fadeIn(500);
+  // }
 
 });

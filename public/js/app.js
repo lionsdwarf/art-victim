@@ -5,6 +5,7 @@ $(function() {
   App.librariesCollection.fetch();
   
   App.homeView = new App.Views.HomeView;
+  App.loginModal = new App.Views.LoginModal;
   
 });
 
@@ -16,3 +17,4 @@ var App = {
   savedComposition: [],
   currentUser: []
 }
+
