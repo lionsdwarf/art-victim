@@ -1,28 +1,33 @@
 "use strict";
 module.exports = {
-  up: function(migration, DataTypes, done) {
-    migration.createTable("libraries", {
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.createTable("libraries", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       name: {
-        type: DataTypes.STRING, 
+        type: Sequelize.STRING, 
+        unique: true
+      },
+      library: {
+        type: Sequelize.STRING,
+        allowNull: false,
         unique: true
       },
       created_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
       updated_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       }
-    }).done(done);
+    });
   },
-  down: function(migration, DataTypes, done) {
-    migration.dropTable("libraries").done(done);
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.dropTable("libraries");
   }
 };

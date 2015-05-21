@@ -26,6 +26,11 @@
 
    <script src="js/views/login_modal_view.js"></script>
 
+   <script src="js/models/composition_graphic_model.js"></script>
+   <script src="js/collections/composition_graphics_collection.js"></script>
+   <script src="js/views/composition_graphic_model_view.js"></script>
+   <script src="js/views/composition_graphics_collection_view.js"></script>
+
    <script src="js/views/home_view.js"></script>
    <script src="js/models/user_model.js"></script>
    <script src="js/views/user_model_view.js"></script>
@@ -51,7 +56,9 @@
   </div>
 
   <div id="session">
-    <div id="login"></div>
+    <div id="login">
+      <div id="login-modal"></div>
+    </div>
   </div>
 
   <div id="modals"></div>
@@ -93,16 +100,16 @@
   </template>
 
   <template id="graphic-template">
-      <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="model-graphic">
+    <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="model-graphic">
+  </template>
+
+  <template id="composition-graphic-template">
+    <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="composition-graphic">
   </template>
 
   <template id="library-template">
     <section id="{{id}}">{{name}}</section> 
-      <div id="{{name}}-graphics"></div>
-  </template>
-  
-  <template id="placed-graphic-template">
-    <img src="{{url}}" alt="{{name}}">
+      <div id="{{library}}-graphics"></div>
   </template>
   
   <template id="load-template">

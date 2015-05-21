@@ -9,6 +9,7 @@ var models             = require('./models'),
 var libraries = [
   {
     name: 'Backgrounds',
+    library: 'backgrounds',
     graphics: [
       {
         name: 'BehindTheHills',
@@ -46,6 +47,7 @@ var libraries = [
   },
   {
     name: 'Famous People',
+    library: 'famous-people',
     graphics: [
       {
         name: 'Elvis',
@@ -87,6 +89,7 @@ var libraries = [
   },
   {
     name: 'Animals',
+    library: 'animals',
     graphics: [
       {
         name: 'SmileyDolphin',
@@ -144,6 +147,7 @@ var libraries = [
   },
   {
     name: 'Assorted',
+    library: 'assorted',
     graphics: [
       {
         name: 'ActiveTank',
@@ -177,7 +181,8 @@ var seedDatabase = function () {
   libraries.forEach(function (libraryData) {
     Library
       .create({
-        name: libraryData.name
+        name: libraryData.name,
+        library: libraryData.library
       })
       .then(function(library) {
         libraryData.graphics.forEach(function (graphicData) {
