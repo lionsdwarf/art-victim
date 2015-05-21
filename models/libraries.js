@@ -8,6 +8,14 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: { msg: 'Valid library name required',
         }
       }
+    },
+    library: {
+      type: DataTypes.STRING,
+      unique: true,
+      validate: {
+        notEmpty: { msg: 'Valid library required',
+        }
+      }
     }
    },  
   {

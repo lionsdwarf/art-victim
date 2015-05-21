@@ -2,13 +2,16 @@ App.Views.HomeView = Backbone.View.extend({
   el: '#session',
 
   initialize: function() {
-    loginSignupTemplate = Handlebars.compile($('#login-signup-template').html());
+    loginLink = Handlebars.compile($('#login-link').html());
+    signupLink = Handlebars.compile($('#signup-link').html());
+    signupTemplate = Handlebars.compile($('#signup-template').html());
     this.fetchAndRenderSession();
   },
 
   events: {
     'click #signup-button' : 'signup',
-    'click #login-button' : 'login'
+    'click #login-button' : 'login',
+    'click #login' : 'showLoginModal',
   },
 
   fetchAndRenderSession: function() {
@@ -20,14 +23,23 @@ App.Views.HomeView = Backbone.View.extend({
         new App.Views.UserCompositionsCollectionView({ collection: userCompositionsCollection });
         userCompositionsCollection.fetch();
       } else {
-        $('#session').html(loginSignupTemplate());
+        $('#login').html(loginLink());
       }
-    })
-      .fail(function(jqXHR) {
+    }).fail(function(jqXHR) {
         if (jqXHR.status === 404) {
           $('#session').html('Work In Progress');
         }
       });
+  },
+
+  showLoginModal: function() {
+    console.log('clicked')
+    App.loginModal.showModal();
+  },
+
+  renderSignupTemplate: function() {
+    $('#signup').html(signupTemplate());
+
   },
 
   loginUser: function(username, password) {

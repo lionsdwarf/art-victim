@@ -1,33 +1,33 @@
 "use strict";
 module.exports = {
-  up: function(migration, DataTypes, done) {
-    migration.createTable("compositions", {
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.createTable("compositions", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       title: {
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       composition: {
-        type: DataTypes.TEXT
+        type: Sequelize.TEXT
       },
       user_id: {
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       created_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       },
       updated_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: Sequelize.DATE
       }
-    }).done(done);
+    }).done();
   },
-  down: function(migration, DataTypes, done) {
-    migration.dropTable("compositions").done(done);
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.dropTable("compositions");
   }
 };

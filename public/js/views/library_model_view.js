@@ -3,20 +3,24 @@ App.Views.LibraryModelView = Backbone.View.extend({
   initialize: function() {
     this.template = Handlebars.compile($('#library-template').html());
     this.render();
-    this.renderOneGraphicsCollection();
-    // this.listenTo(this.collection, 'add', this.renderOneGraphicsCollection);
   },
 
   render: function() {
     var libraryTemplate = this.template(this.model.toJSON());
     this.$el.html(libraryTemplate);
+    //pause to render templates which contain els for graphicsCollectionViews
+    setTimeout(function() { this.renderOneGraphicsCollection()}.bind(this), 500);
   },
 
   renderOneGraphicsCollection: function() {
     var libraryModel = this.model;
+    var collectionName = libraryModel.get('library');
     var graphicsCollection = new App.Collections.GraphicsCollection(libraryModel);
-    var graphicsCollectionView = new App.Views.GraphicsCollectionView({ collection: graphicsCollection, libraryModel });
-    graphicsCollection.fetch();
+    var graphicsCollectionView = new App.Views.GraphicsCollectionView({
+      el: '#' + collectionName + '-graphics',
+      collection: graphicsCollection
+    });
   }
 
 });
+

@@ -24,6 +24,13 @@
    <script src="js/views/graphics_collection_view.js"></script>
    <script src="js/collections/graphics_collection.js"></script>
 
+   <script src="js/views/login_modal_view.js"></script>
+
+<!--    // <script src="js/models/composition_graphic_model.js"></script>
+   // <script src="js/collections/composition_graphics_collection.js"></script>
+   // <script src="js/views/composition_graphic_model_view.js"></script>
+   // <script src="js/views/composition_graphics_collection_view.js"></script> -->
+
    <script src="js/views/home_view.js"></script>
    <script src="js/models/user_model.js"></script>
    <script src="js/views/user_model_view.js"></script>
@@ -48,25 +55,42 @@
     <ul id="sortable">LAYERS</ul>
   </div>
 
-  <div id="session"></div>
+  <div id="session">
+    <div id="login">
+      <div id="login-modal"></div>
+    </div>
+  </div>
+
+  <div id="modals"></div>
   
   <div id="graphics"></div>
   
   <div id="libraries"></div>
-<!--   <span id="canvas"></span> -->
 
   <div id="user-compositions"></div>
 
-  <template id="login-signup-template">
-    <br>
-    <div></div>
-      <input type="text" id="signup-username" placeholder="Create username"><br>
-      <input type="password" id="signup-password" placeholder="Create password"><br>
-      <button id="signup-button">Create Victim</button><br><br>
-    <div></div>
+  <template id="login-link">
+    <div>Save</div>
+  </template>
+
+  <template id="signup-link">
+    <div>Sign up</div>
+  </template>
+
+  <template id="login-template">
+    <div>
       <input type="text" id="login-username" placeholder="Login username"><br>
       <input type="password" id="login-password" placeholder="Login password"><br>
       <button id="login-button">Enter</button>
+    </div>
+  </template>
+
+  <template id="signup-template"> 
+    <div>
+      <input type="text" id="signup-username" placeholder="Create username"><br>
+      <input type="password" id="signup-password" placeholder="Create password"><br>
+      <button id="signup-button">Create Victim</button><br><br>
+    </div>
   </template>
 
   <template id="user-template">
@@ -76,17 +100,16 @@
   </template>
 
   <template id="graphic-template">
-      <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="model-graphic">
+    <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="model-graphic">
+  </template>
+
+  <template id="composition-graphic-template">
+    <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="composition-graphic">
   </template>
 
   <template id="library-template">
     <section id="{{id}}">{{name}}</section> 
-      <div id="{{name}}-graphics"></div>
-        <div id="library"></div>
-  </template>
-  
-  <template id="placed-graphic-template">
-    <img src="{{url}}" alt="{{name}}">
+      <div id="{{library}}-graphics"></div>
   </template>
   
   <template id="load-template">

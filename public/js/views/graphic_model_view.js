@@ -18,8 +18,16 @@ App.Views.GraphicModelView = Backbone.View.extend({
   },
 
   renderBackground: function() {
+    // var compositionGraphicModel = new App.Models.CompositionGraphicModel({ 
+    //   name: this.model.attributes.name,
+    //   url: this.model.attributes.url  
+    // });
+    // App.compositionGraphicsCollection.add(compositionGraphicModel);
+
+
       var background = this.el.cloneNode(true);
       var background = $(background).find('img');
+
 
       this.counter++;
       var backgroundId = background.attr('id') + this.counter;
@@ -31,7 +39,7 @@ App.Views.GraphicModelView = Backbone.View.extend({
   },
 
   generateSortable: function(graphicId) {
-    //generates unique sortable per new graphic
+    //generates unique sortable per new composition graphic
     var sortableList = $('#sortable');
     var sortable = $('<li>').html(graphicId).appendTo(sortableList);
     $(sortable).attr('id', 'sortable' + graphicId);
@@ -45,6 +53,16 @@ App.Views.GraphicModelView = Backbone.View.extend({
   },
 
   generateGraphic: function() {
+
+    // var compositionGraphicModel = new App.Models.CompositionGraphicModel({ 
+    //   name: this.model.attributes.name,
+    //   url: this.model.attributes.url  
+    // });
+    // App.compositionGraphicsCollection.add(compositionGraphicModel);
+
+
+
+
       //clones the graphic
       var graphic = this.el.cloneNode(true);
       var graphic = $(graphic).find('img');
