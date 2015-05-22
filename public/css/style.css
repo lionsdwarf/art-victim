@@ -14,33 +14,34 @@ body {
   margin: 0 10px 10px 0;   
 }
 
-/*.graphic {
+.composition-graphic {
   left: 400px;
-  width : auto;
-  position : absolute;
   top: 200px;
+  position : relative;
+  width : auto;
   height: 300px;
   margin: auto; 
-}*/
+}
 
 #graphics {
   margin-top: 550px;
 }
 
-.background {
+.composition-background {
   top : 120px;
   left: 7.4em;
   /*left : 400px;*/
   margin : auto;
   width : auto;
   position : absolute;
-  z-index : -2;
+  z-index : -1;
   max-width : 900px;
   text-align: center;
   display: inline-block;
+  position: absolute;
 }
 
-.model-graphic {
+.library-graphic {
   max-width: 300px;
   max-height: 400px;
 }

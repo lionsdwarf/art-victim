@@ -1,24 +1,26 @@
-App.Views.LoginModal = Backbone.View.extend({
-  el: '#modals',
+App.Views.LoginModalView = Backbone.View.extend({
+  el: '#login-modal',
 
   initialize: function() {
     loginTemplate = Handlebars.compile($('#login-template').html());
-    this.renderLoginModal();
+    this.render();
   },
 
-  renderLoginModal: function() {
-    console.log('loginModal rendered')
-    $('#login-modal').html(loginTemplate());
-    // this.hideModal();
+  render: function() {
+    this.$el.html(loginTemplate());
+    this.hide();
   },
 
-  showModal: function() {
-    console.log('loginModal show')
+  show: function() {
     this.$el.fadeIn(500);
   },
 
-  hideModal: function() {
-    // this.$el.hide();
+  hide: function() {
+    this.$el.hide();
+  },
+
+  fadeOut: function() {
+    this.$el.fadeOut(500);
   }
 
 });

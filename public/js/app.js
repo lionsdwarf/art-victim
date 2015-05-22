@@ -11,7 +11,6 @@ $(function() {
   });
   
   App.homeView = new App.Views.HomeView;
-  App.loginModal = new App.Views.LoginModal;
   
 });
 
