@@ -1,4 +1,4 @@
-App.Views.SignupModalView = Backbone.View.extend({
+App.Views.SignupModal = Backbone.View.extend({
   el: '#signup-modal',
 
   initialize: function() {

@@ -1,3 +1,3 @@
-App.Models.CompositionGraphicModel = Backbone.Model.extend({
+App.Models.CompositionGraphic = Backbone.Model.extend({
   initialize: function() {}
 });

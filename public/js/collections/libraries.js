@@ -1,5 +1,5 @@
-App.Collections.LibrariesCollection = Backbone.Collection.extend({
+App.Collections.Libraries = Backbone.Collection.extend({
   initialize: function() {},
-  model: App.Models.LibraryModel,
+  model: App.Models.Library,
   url: '/libraries'
 });

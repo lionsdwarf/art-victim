@@ -1,4 +1,4 @@
-App.Views.LibrariesCollectionView = Backbone.View.extend({
+App.Views.Libraries = Backbone.View.extend({
     el: '#libraries',
 
     initialize: function() {
@@ -6,8 +6,8 @@ App.Views.LibrariesCollectionView = Backbone.View.extend({
     },
 
     renderLibraryView: function(libraryModel) {
-      var newLibraryView = new App.Views.LibraryModelView({ model: libraryModel });
-      this.$el.append(newLibraryView.el);
+      var libraryView = new App.Views.Library({ model: libraryModel });
+      this.$el.append(libraryView.el);
     }
 
 });

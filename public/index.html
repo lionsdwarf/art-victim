@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   <title>Art Victim</title>
 
-<!--   // <script src="/jslibraries/jquery.min.js"></script>
+  // <script src="/jslibraries/jquery.min.js"></script>
   // <script src="/jslibraries/underscore-min.js"></script>
   // <script src="/jslibraries/backbone-min.js"></script>
   // <script src="/jslibraries/handlebars.min.js"></script>
-  // <script src="/jslibraries/jquery-ui.js"></script> -->
+  // <script src="/jslibraries/jquery-ui.js"></script>
 
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-   <script href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<!--    // <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   // <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+   // <script href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css"></script>
+   // <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+   // <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+   // <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script> -->
 
    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 
@@ -39,19 +39,18 @@
    <script src="js/models/composition_graphic.js"></script>
    <script src="js/collections/composition_graphics.js"></script>
    <script src="js/views/composition_graphic_view.js"></script>
-   <script src="js/views/composition_background_view.js"></script>
    <script src="js/views/composition_graphics_view.js"></script>
+
+   <script src="js/models/user_composition.js"></script>
+   <script src="js/collections/user_compositions.js"></script>
+   <script src="js/views/user_composition_view.js"></script>
+   <script src="js/views/user_compositions_view.js"></script>
 
    <script src="js/views/home_view.js"></script>
    <script src="js/models/user.js"></script>
    <script src="js/views/user_view.js"></script>
 
-   <script src="js/models/user_composition.js"></script>
-   <script src="js/views/user_composition_view.js"></script>
-   <script src="js/views/user_compositions_view.js"></script>
-   <script src="js/collections/user_compositions.js"></script>
-   <script src=""></script>
-
+   <script src="js/edit_composition_graphic.js"></script>
    
   <link rel="stylesheet" href="css/style.css">
 
@@ -63,7 +62,8 @@
   <div id="home-view"></div>
  
   <div id="layer-list">
-    <ul id="sortables">LAYERS</ul>
+    <p>LAYERS</p>
+    <ul id="sortables"></ul>
   </div>
 
   <div id="session">
@@ -76,7 +76,7 @@
   
   <div id="libraries"></div>
 
-  <div id="user-compositions"></div>
+  <div id="compositions-list"></div>
 
   <template id="login-link">
     <div>Save & Send</div>
@@ -106,7 +106,6 @@
   </template>
 
   <template id="user-template">
-    <div>{{username}}</div>
     <div id="logout">Logout</div>
     <div id="user-save">Save</div>
     <div id="user-load">Load</div>
@@ -117,11 +116,7 @@
   </template>
 
   <template id="composition-graphic-template">
-    <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="composition-graphic savable">
-  </template>
-
-    <template id="composition-background-template">
-    <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="composition-background savable">
+    <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="composition-graphic savable" style="{{style}}">
   </template>
 
   <template id="library-template">
@@ -140,6 +135,10 @@
   
   <template id="composition-template">
     <img id="{{name}}" src="{{url}}" alt="{{name}}" style="{{style}}">
+  </template>
+
+  <template id="composition-title">
+    <p id ="{{title}}">{{title}}</p>
   </template>
 
 </body>

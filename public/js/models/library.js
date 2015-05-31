@@ -1,3 +1,3 @@
-App.Models.LibraryModel = Backbone.Model.extend({
+App.Models.Library = Backbone.Model.extend({
   initialize: function() {}
 });

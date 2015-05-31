@@ -1,4 +1,4 @@
-App.Views.HomeView = Backbone.View.extend({
+App.Views.Home = Backbone.View.extend({
   el: '#session',
 
   initialize: function() {
@@ -19,16 +19,13 @@ App.Views.HomeView = Backbone.View.extend({
   fetchAndRenderSession: function() {
     $.get('/users/current_user').done(function(user) {
       if (user) {
-        var userModel = new App.Models.UserModel({ id: user.id });  
-        new App.Views.UserModelView({ model: userModel });
-        // var userCompositionsCollection = new App.Collections.UserCompositionsCollection;
-        // new App.Views.UserCompositionsCollectionView({ collection: userCompositionsCollection });
-        // userCompositionsCollection.fetch();
+        var userModel = new App.Models.User({ id: user.id });  
+        new App.Views.User({ model: userModel });
       } else {
         $('#login').html(loginLink());
         $('#signup').html(signupLink());
-        App.loginModal = new App.Views.LoginModalView;
-        App.signupModal = new App.Views.SignupModalView;
+        App.loginModal = new App.Views.LoginModal;
+        App.signupModal = new App.Views.SignupModal;
       }
     }).fail(function(jqXHR) {
         if (jqXHR.status === 404) {

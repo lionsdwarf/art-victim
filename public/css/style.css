@@ -18,8 +18,8 @@ body {
   left: 400px;
   top: 200px;
   position : relative;
-  width : auto;
-  height: 300px;
+  max-width: 300px;
+  max-height: 300px;
   margin: auto; 
 }
 

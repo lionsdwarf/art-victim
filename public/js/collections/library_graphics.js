@@ -1,8 +1,8 @@
-App.Collections.LibraryGraphicsCollection = Backbone.Collection.extend({
+App.Collections.LibraryGraphics = Backbone.Collection.extend({
   initialize: function(libraryModel) {
-    var newUrl = '/libraries/' + libraryModel.attributes.id + '/graphics/';
-    this.url = newUrl;
+    var graphicUrl = '/libraries/' + libraryModel.attributes.id + '/graphics/';
+    this.url = graphicUrl;
   },
-  model: App.Models.LibraryGraphicModel
+  model: App.Models.LibraryGraphic
  
 });

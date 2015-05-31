@@ -1,3 +1,3 @@
-App.Models.UserCompositionModel = Backbone.Model.extend({
+App.Models.UserComposition = Backbone.Model.extend({
   initialize: function() {}
 });

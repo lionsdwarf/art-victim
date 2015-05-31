@@ -1,11 +1,11 @@
-App.Views.UserCompositionsCollectionView = Backbone.View.extend({
-  el: '#user-compositions',
+App.Views.UserCompositions = Backbone.View.extend({
+  el: '#compositions-list',
   initialize: function() {
-    this.listenTo(this.collection, 'add', this.renderOneUserCompositionView);
+    this.listenTo(this.collection, 'add', this.renderCompositionListView);
   },
-  renderOneUserCompositionView: function(userCompositionModel) {
-    console.log(userCompositionModel)
-    var userCompositionView = new App.Views.UserCompositionModelView({ model: userCompositionModel });
+
+  renderCompositionListView: function(newModel) {
+    var userCompositionView = new App.Views.UserComposition({ model: newModel });
     this.$el.append(userCompositionView.el);
   }
 });

@@ -1,3 +1,3 @@
-App.Models.LibraryGraphicModel = Backbone.Model.extend({
+App.Models.LibraryGraphic = Backbone.Model.extend({
   initialize: function() {}
 });

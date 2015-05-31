@@ -1,4 +1,4 @@
-App.Views.LibraryGraphicsCollectionView = Backbone.View.extend({
+App.Views.LibraryGraphics = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.collection, 'add', this.renderOneGraphicView);
@@ -6,7 +6,7 @@ App.Views.LibraryGraphicsCollectionView = Backbone.View.extend({
   },
 
   renderOneGraphicView: function(libraryGraphicModel) {
-    var newLibraryGraphicView = new App.Views.LibraryGraphicModelView({ model: libraryGraphicModel });
+    var newLibraryGraphicView = new App.Views.LibraryGraphic({ model: libraryGraphicModel });
     this.$el.append(newLibraryGraphicView.el);
   },
 

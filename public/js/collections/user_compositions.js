@@ -1,5 +1,6 @@
-App.Collections.UserCompositionsCollection = Backbone.Collection.extend({
-  initialize: function() {},
-  url: '/users/19/compositions',
-  model: App.Models.UserCompositionModel,
+App.Collections.UserCompositions = Backbone.Collection.extend({
+  initialize: function() {
+    var compositionsUrl = '/users/' + App.currentUser + '/compositions';
+    this.url = compositionsUrl;
+  }
 });

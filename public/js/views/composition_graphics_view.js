@@ -1,27 +1,15 @@
-App.Views.CompositionGraphicsCollectionView = Backbone.View.extend({
+App.Views.CompositionGraphics = Backbone.View.extend({
   el: '#home-view',
   initialize: function() {
+    this.$el.empty();
+    $('#sortables').empty();
     this.listenTo(this.collection, 'add', this.renderCompositionGraphic);
   },
 
-  // defineModel: function() {
-  //   var newModel = this.collection.last();
-  //   var src = newModel.attributes.url;
-  //   (src.search('/backgrounds') >= 0) ? this.renderCompositionBackground(newModel) : this.renderCompositionGraphic(newModel); 
-  // },
-
   renderCompositionGraphic: function(newModel) {
-    var newCompositionGraphicModelView = new App.Views.CompositionGraphicModelView({
+    var newCompositionGraphicModelView = new App.Views.CompositionGraphic({
       model: newModel
     });
     this.$el.append(newCompositionGraphicModelView.el);
-  },
-
-  // renderCompositionBackground: function(newModel) {
-  //   var newCompositionBackgroundModelView = new App.Views.CompositionBackgroundModelView({
-  //     model: newModel
-  //   });
-  //   this.$el.append(newCompositionBackgroundModelView.el);
-  // }
-
+  }
 });

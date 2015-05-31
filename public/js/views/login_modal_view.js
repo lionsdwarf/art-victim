@@ -1,4 +1,4 @@
-App.Views.LoginModalView = Backbone.View.extend({
+App.Views.LoginModal = Backbone.View.extend({
   el: '#login-modal',
 
   initialize: function() {

@@ -1,7 +1,4 @@
-App.Views.CompositionGraphicModelView = Backbone.View.extend({
-  
-  counter: 0,
-
+App.Views.CompositionGraphic = Backbone.View.extend({
   initialize: function() {
     this.template = Handlebars.compile($('#composition-graphic-template').html());
     this.render();
@@ -16,37 +13,32 @@ App.Views.CompositionGraphicModelView = Backbone.View.extend({
 
   defineEndow: function(newCompositionGraphic) {
     var src = this.model.attributes.url;
-    (src.search('/backgrounds') >= 0) ? this.endowFixed(newCompositionGraphic) : this.endow(newCompositionGraphic); 
+    (src.search('/backgrounds') >= 0) ? this.endowFixed(newCompositionGraphic) : this.endowDraggable(newCompositionGraphic); 
   },
 
   endowFixed: function(newCompositionGraphic) {
     newCompositionGraphic.find('img')
-                                .removeClass('composition-graphic')
-                         .addClass('composition-background');
+      .removeClass('composition-graphic')
+      .addClass('composition-background');
   },
 
-  endow: function(newCompositionGraphic) {
+  endowDraggable: function(newCompositionGraphic) {
     var compGraphic = newCompositionGraphic.find('img');
-    //creates draggable functionality
+    //endow draggable functionality on image elements
     compGraphic.draggable();
-    // newCompositionGraphic.find('img').resizable();
+    // compGraphic.resizable();
+    App.zIndexCounter++;
+    compGraphic.css('z-index', App.zIndexCounter);
     this.generateSortable();
+
   },
 
   generateSortable: function() {
-  //generates unique sortable per new composition graphic
-  var name = this.model.attributes.name;
-  var sortable = $('<li>').html(name).appendTo($('#sortables'));
-  $(sortable).attr('id', 'sortable' + name);
-  //identifies sortable's position in sorting list (to correspond w z-index)
-  $('#sortables').sortable({ 
-    stop: function(event, ui) {
-      console.log(ui.item.index());
-    }
-  });
-  
-  },
-
-
+    //generate unique sortable per new composition graphic
+    var name = this.model.attributes.name;
+    var sortable = $('<li>').html(name).prependTo($('#sortables'));
+    $(sortable).attr('id', 'sortable' + name);
+    $(sortable).attr('data-name', name); 
+  }
 
 });
