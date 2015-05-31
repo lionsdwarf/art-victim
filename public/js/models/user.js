@@ -1,4 +1,4 @@
-App.Models.UserModel = Backbone.Model.extend({
+App.Models.User = Backbone.Model.extend({
   urlRoot: '/users',
   initialize: function() {}
 });

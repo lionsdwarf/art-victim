@@ -1,17 +1,18 @@
 $(function() {
 
-  App.librariesCollection = new App.Collections.LibrariesCollection;
-  App.librariesCollectionView = new App.Views.LibrariesCollectionView({ collection: App.librariesCollection
+  App.librariesCollection = new App.Collections.Libraries;
+  App.librariesCollectionView = new App.Views.Libraries({ collection: App.librariesCollection
   });
   App.librariesCollection.fetch();
 
-  App.compositionGraphicsCollection = new App.Collections.CompositionGraphicsCollection;
-  App.compositionGraphicsCollectionView = new App.Views.CompositionGraphicsCollectionView({
+  App.compositionGraphicsCollection = new App.Collections.CompositionGraphics;
+  App.compositionGraphicsCollectionView = new App.Views.CompositionGraphics({
     collection: App.compositionGraphicsCollection
   });
-  
-  App.homeView = new App.Views.HomeView;
-  App.loginModal = new App.Views.LoginModal;
+
+  App.homeView = new App.Views.Home;
+
+  editCompositionGraphic();
   
 });
 
@@ -21,6 +22,7 @@ var App = {
   Views: {},
   placedGraphics: [],
   savedComposition: [],
-  currentUser: []
+  zIndexCounter: 0,
+  currentUser: null
 }
 

@@ -1,4 +1,4 @@
-App.Views.HomeView = Backbone.View.extend({
+App.Views.Home = Backbone.View.extend({
   el: '#session',
 
   initialize: function() {
@@ -12,18 +12,20 @@ App.Views.HomeView = Backbone.View.extend({
     'click #signup-button' : 'signup',
     'click #login-button' : 'login',
     'click #login' : 'showLoginModal',
+    'click #sign-up-link' : 'showSignupModal',
+    'click #log-in-link' : 'showLoginModal',
   },
 
   fetchAndRenderSession: function() {
     $.get('/users/current_user').done(function(user) {
       if (user) {
-        var userModel = new App.Models.UserModel({ id: user.id });  
-        new App.Views.UserModelView({ model: userModel });
-        var userCompositionsCollection = new App.Collections.UserCompositionsCollection;
-        new App.Views.UserCompositionsCollectionView({ collection: userCompositionsCollection });
-        userCompositionsCollection.fetch();
+        var userModel = new App.Models.User({ id: user.id });  
+        new App.Views.User({ model: userModel });
       } else {
         $('#login').html(loginLink());
+        $('#signup').html(signupLink());
+        App.loginModal = new App.Views.LoginModal;
+        App.signupModal = new App.Views.SignupModal;
       }
     }).fail(function(jqXHR) {
         if (jqXHR.status === 404) {
@@ -33,17 +35,16 @@ App.Views.HomeView = Backbone.View.extend({
   },
 
   showLoginModal: function() {
-    console.log('clicked')
-    App.loginModal.showModal();
+    App.signupModal.fadeOut();
+    App.loginModal.show();
   },
 
-  renderSignupTemplate: function() {
-    $('#signup').html(signupTemplate());
-
+  showSignupModal: function() {
+    App.loginModal.fadeOut();
+    App.signupModal.show();
   },
 
   loginUser: function(username, password) {
-    
     $.post('/users/sessions', {
       username: username,
       password: password
