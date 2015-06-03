@@ -14,18 +14,14 @@ App.Views.LibraryGraphic = Backbone.View.extend({
 
   cloneModel: function() {
     this.counter++;
-    var newModel = new App.Models.CompositionGraphic({ 
-      name: this.model.attributes.name + '-' + this.counter,
+    var newModel = new App.Models.CompositionGraphic({
+      name: this.model.attributes.name + ' ' + this.counter, 
+      data_name: this.model.attributes.name + '-' + this.counter,
       url: this.model.attributes.url,
-      library_id: this.model.attributes.library_id
+      library_id: this.model.attributes.library_id,
+      type: 'image'
     });
     App.compositionGraphicsCollection.add(newModel);
   }
 
 });
-
-
-
-
-
-

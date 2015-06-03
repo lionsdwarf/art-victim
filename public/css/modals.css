@@ -1,0 +1,11 @@
+.modal {
+  
+}
+
+.login-modal {
+  z-index: 990;
+}
+
+.signup-modal {
+  z-index: 1000;
+}

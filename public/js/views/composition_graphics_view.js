@@ -3,13 +3,22 @@ App.Views.CompositionGraphics = Backbone.View.extend({
   initialize: function() {
     this.$el.empty();
     $('#sortables').empty();
-    this.listenTo(this.collection, 'add', this.renderCompositionGraphic);
+    this.listenTo(this.collection, 'add', 
+      // this.renderCompositionGraphic
+      this.defineModel);
+  },
+
+  defineModel: function(newModel) {
+    newModel.attributes.type === 'canvas' ? this.renderCompositionText(newModel) : this.renderCompositionGraphic(newModel);
+  },
+
+  renderCompositionText: function(newModel) {
+    var newCompositionTextView = new App.Views.CompositionText({ model: newModel });
+    this.$el.append(newCompositionTextView.el);
   },
 
   renderCompositionGraphic: function(newModel) {
-    var newCompositionGraphicModelView = new App.Views.CompositionGraphic({
-      model: newModel
-    });
-    this.$el.append(newCompositionGraphicModelView.el);
+    var newCompositionGraphicView = new App.Views.CompositionGraphic({ model: newModel });
+    this.$el.append(newCompositionGraphicView.el);
   }
 });
