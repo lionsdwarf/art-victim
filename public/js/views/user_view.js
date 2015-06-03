@@ -24,20 +24,43 @@ App.Views.User = Backbone.View.extend({
 
   recordComposition: function() {
     App.savedComposition = [];
-    var array = App.placedGraphics;
-      for (var i = 0; i < array.length; i++ ) {
+    var graphicArray = App.placedGraphics;
+    var textArray = App.placedText;
+
+      for (var i = 0; i < graphicArray.length; i++) {
         var composedGraphic = {};
-        var graphic = "[id=" + '"' + array[i] + '"' + "]";
-        composedGraphic.name = array[i];
-        composedGraphic.url = $(graphic).data('url');
-        composedGraphic.style = 
+        var graphic = "[id=" + '"' + graphicArray[i] + '"' + "]";
+        var style = 
           "width: " + $(graphic).width() + "px; " +
           "height: " + $(graphic).height() + "px; " +
           "left: " + $(graphic).position().left + "px; " +
           "top: " + $(graphic).position().top + "px; " +
           "z-index: " + $(graphic).css('z-index') + "; " +
-          "position: absolute;";
+          "position: absolute;"
+        composedGraphic.data_name = graphicArray[i];
+        composedGraphic.name = $(graphic).attr('alt');
+        composedGraphic.url = $(graphic).data('url');
+        composedGraphic.style = style;
+        composedGraphic.type = 'image';
         App.savedComposition.push(composedGraphic);
+      }
+
+      for (var i = 0; i < textArray.length; i++) {
+        var composedText = {};
+        var text = "[id=" + '"' + textArray[i] + '"' + "]";
+        var style = 
+          "width: " + $(text).width() + "px; " +
+          "height: " + $(text).height() + "px; " +
+          "left: " + $(text).position().left + "px; " +
+          "top: " + $(text).position().top + "px; " +
+          "z-index: " + $(text).css('z-index') + "; " +
+          "position: absolute;"
+        composedText.data_name = textArray[i];
+        composedText.name = $(text).attr('alt');
+        composedText.style = style;
+        composedText.user_input = $(text).data('text');
+        composedText.type = 'canvas';
+        App.savedComposition.push(composedText);
       }
     this.saveComposition();
     $('#session').html(this.userTemplate(this.model.id));
@@ -76,3 +99,18 @@ App.Views.User = Backbone.View.extend({
   }
 
 });
+
+// var img = new Image();
+// img.src = '/graphics/famous_people/snoop_murder_wt_case.png';
+// var canvas = document.getElementById('canvas1');
+// var ctx = canvas.getContext('2d');
+// img.onload = function() {
+//   ctx.drawImage(img, 0, 0);
+//   img.style.display = 'none';
+// };
+
+// var canvas = document.getElementById("canvas1");
+// var dataURL = canvas.toDataURL();
+
+// var carosine = document.getElementById("carosine-NaN");
+// var dataURL = canvas.toDataURL();

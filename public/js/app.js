@@ -10,6 +10,7 @@ $(function() {
     collection: App.compositionGraphicsCollection
   });
 
+  App.textCompositionView = new App.Views.TextComposition;
   App.homeView = new App.Views.Home;
 
   editCompositionGraphic();
@@ -21,8 +22,8 @@ var App = {
   Collections: {},
   Views: {},
   placedGraphics: [],
+  placedText: [],
   savedComposition: [],
-  zIndexCounter: 0,
   currentUser: null
 }
 

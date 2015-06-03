@@ -12,5 +12,6 @@ var editCompositionGraphic = function() {
           $('#' + name).css('z-index', i);
         }
     }
-  }); 
+  });
+
 }
