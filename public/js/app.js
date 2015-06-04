@@ -23,6 +23,7 @@ var App = {
   Views: {},
   placedGraphics: [],
   placedText: [],
+  layerOrder: [],
   savedComposition: [],
   currentUser: null
 }

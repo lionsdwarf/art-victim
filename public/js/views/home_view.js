@@ -14,6 +14,7 @@ App.Views.Home = Backbone.View.extend({
     'click #login' : 'showLoginModal',
     'click #sign-up-link' : 'showSignupModal',
     'click #log-in-link' : 'showLoginModal',
+    'click .close' : 'hideModals'
   },
 
   fetchAndRenderSession: function() {
@@ -42,6 +43,11 @@ App.Views.Home = Backbone.View.extend({
   showSignupModal: function() {
     App.loginModal.fadeOut();
     App.signupModal.show();
+  },
+
+  hideModals: function() {
+    App.loginModal.close();
+    App.signupModal.close();
   },
 
   loginUser: function(username, password) {

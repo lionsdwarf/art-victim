@@ -5,12 +5,13 @@ App.Views.TextComposition = Backbone.View.extend({
   },
 
   generateTextModel: function() {
-    debugger;
     this.counter++;
+    var userInput = $('#input-text').val();
+    //var width = ctx.measureText(userInput).width;
     var newModel = new App.Models.CompositionText({
-      data_name: $('#input-text').val() + '-' + this.counter,
+      data_name: encodeURI(userInput) + '-' + this.counter,
       name: $('#input-text').val() + ' ' + this.counter,
-      user_input: $('#input-text').val(),
+      user_input: userInput,
       type: 'canvas'
     });
     App.compositionGraphicsCollection.add(newModel);

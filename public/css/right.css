@@ -1,0 +1,6 @@
+.column-right {
+  display: inline;
+  float: right;
+  width: 20%;
+  text-align: right;
+}

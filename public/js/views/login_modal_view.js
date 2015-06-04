@@ -21,6 +21,10 @@ App.Views.LoginModal = Backbone.View.extend({
 
   fadeOut: function() {
     this.$el.fadeOut(500);
+  },
+
+  close: function() {
+    this.$el.fadeOut(50);
   }
 
 });
