@@ -7,6 +7,7 @@ App.Views.User = Backbone.View.extend({
     $('#session').html(this.userTemplate(this.model.id));
     App.currentUser = this.model.id;
     this.loadCompositions();
+    $('#email').on('click', this.emailComposition);
   },
 
   events: {
@@ -96,21 +97,10 @@ App.Views.User = Backbone.View.extend({
       method: 'DELETE',
       })
         .done(App.homeView.fetchAndRenderSession);
+  },
+
+  emailComposition: function() {
+    App.emailComposition = new App.Views.EmailComposition;
   }
 
 });
-
-// var img = new Image();
-// img.src = '/graphics/famous_people/snoop_murder_wt_case.png';
-// var canvas = document.getElementById('canvas1');
-// var ctx = canvas.getContext('2d');
-// img.onload = function() {
-//   ctx.drawImage(img, 0, 0);
-//   img.style.display = 'none';
-// };
-
-// var canvas = document.getElementById("canvas1");
-// var dataURL = canvas.toDataURL();
-
-// var carosine = document.getElementById("carosine-NaN");
-// var dataURL = canvas.toDataURL();

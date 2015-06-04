@@ -1,11 +1,9 @@
 App.Views.CompositionGraphics = Backbone.View.extend({
-  el: '#home-view',
+  el: '#composition-view',
   initialize: function() {
     this.$el.empty();
     $('#sortables').empty();
-    this.listenTo(this.collection, 'add', 
-      // this.renderCompositionGraphic
-      this.defineModel);
+    this.listenTo(this.collection, 'add', this.defineModel);
   },
 
   defineModel: function(newModel) {

@@ -55,41 +55,45 @@
    <script src="js/views/user_view.js"></script>
 
    <script src="js/views/text_composition_view.js"></script>
+   <script src="js/views/email_composition_view.js"></script>
    <script src="js/edit_composition_graphic.js"></script>
    
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/modals.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/left.css">
+  <link rel="stylesheet" href="css/right.css">
 
 </head>
 <body>
 
   <h1 id="heading" class="heading">Art Victim</h1>
 
-  <div id="home-view"></div>
-
-
- <!--  <canvas id="canvas1" width="900" height="500" style="border : 1px solid black;"></canvas> -->
-
+  <div id="home-view" class="column-center">HOMEVIEW
+    <div id="composition-view" >
+    </div>
+    <input type="text" name="input-text" id="input-text">
+    <input type="submit" id="submit-text" value="Add to canvas">
+  </div>
  
-  <div id="layer-list">
+  <div id="layer-list" class="column-right">
     <p>LAYERS</p>
     <ul id="sortables"></ul>
   </div>
 
-  <div id="session">
+  <div id="session" class="column-left">
     <div id="login"></div>
     <div id="login-modal"></div>
     <div id="signup-modal"></div>
   </div>
 
-  <input type="text" name="input-text" id="input-text">
-  <input type="submit" id="submit-text" value="Add to canvas">
-  
   <div id="graphics"></div>
   
   <div id="libraries"></div>
 
   <div id="compositions-list"></div>
+
+  <div id="email-composition"></div>
 
   <template id="login-link">
     <div>Save & Send</div>
@@ -99,22 +103,27 @@
 
   <template id="login-template">
     <div class="modal login-modal">
-      <p>Please log in...</p>
-      <input type="text" id="login-username" placeholder="username"><br>
-      <input type="password" id="login-password" placeholder="password"><br>
-      <button id="login-button">Log in</button>
-      <p>...or <a id="sign-up-link">sign up</a> for an account.</p>
+      <div class="inner-border">
+        <p class="close">x</p>
+        <p class="header">Please log in...</p>
+        <input type="text" id="login-username" placeholder="username"><br>
+        <input type="password" id="login-password" placeholder="password"><br>
+        <button id="login-button">Log in</button>
+        <p>...or <a id="sign-up-link">sign up</a> for an account.</p>
+      </div>
     </div>
   </template>
 
   <template id="signup-template"> 
     <div class="modal signup-modal">
-      <p>Sign up below...</p>
-      <input type="text" id="signup-username" placeholder="Create username"><br>
-      <input type="password" id="signup-password" placeholder="Create password"><br>
-      <button id="signup-button">Sign up</button><br><br>
-      <p>...or <a id="log-in-link">log in</a> to an existing account.</p>
-
+      <div class="inner-border">
+        <p class="close">x</p>
+        <p class="header">Sign up below...</p>
+        <input type="text" id="signup-username" placeholder="Create username"><br>
+        <input type="password" id="signup-password" placeholder="Create password"><br>
+        <button id="signup-button">Sign up</button>
+        <p>...or <a id="log-in-link">log in</a> to an existing account.</p>
+      </div>
     </div>
   </template>
 
@@ -122,6 +131,7 @@
     <div id="logout">Logout</div>
     <div id="user-save">Save</div>
     <div id="user-load">Load</div>
+    <div id="email">Email</div>
   </template>
 
   <template id="graphic-template">
@@ -162,6 +172,10 @@
 
   <template id="composition-title">
     <p id ="{{title}}">{{title}}</p>
+  </template>
+
+  <template id="email-composition-template">
+    <canvas id="email-canvas" width="900" height="500" style="border : 1px solid black;"></canvas>
   </template>
 
 </body>
