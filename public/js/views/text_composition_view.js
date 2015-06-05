@@ -1,11 +1,12 @@
 App.Views.TextComposition = Backbone.View.extend({
   counter: 0,
   initialize: function() {
-    $('#submit-text').on('click', this.generateTextModel);
+    $('#submit-text').on('click', this.generateTextModel.bind(this));
   },
 
   generateTextModel: function() {
-    this.counter++;
+    debugger;
+    this.counter += 1;
     var userInput = $('#input-text').val();
     //var width = ctx.measureText(userInput).width;
     var newModel = new App.Models.CompositionText({

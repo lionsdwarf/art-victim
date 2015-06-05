@@ -1,5 +1,6 @@
 var editCompositionGraphic = function() {
   // jQuery UI sortable manages layering via css z-index
+
   $('#sortables').sortable({
     //on change of DOM position, update function called
     update: function(event, ui) {

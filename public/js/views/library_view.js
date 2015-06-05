@@ -9,7 +9,7 @@ App.Views.Library = Backbone.View.extend({
     var libraryTemplate = this.template(this.model.toJSON());
     this.$el.html(libraryTemplate);
     //pause to render templates which contain els for graphicsCollectionViews
-    setTimeout(function() { this.renderLibraryGraphicsCollection() }.bind(this), 500);
+    setTimeout(function() { this.renderLibraryGraphicsCollection() }.bind(this), 150);
   },
 
   renderLibraryGraphicsCollection: function() {
