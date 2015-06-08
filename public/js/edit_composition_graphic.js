@@ -11,7 +11,7 @@ var editCompositionGraphic = function() {
         //set z-indeces according to array order
         for (i = 0; i < layerOrder.length; i++) {
           var name = layerOrder[i];
-          $('#' + name).css('z-index', i);
+          $('#div-' + name).css('z-index', i);
         }
     }
   });

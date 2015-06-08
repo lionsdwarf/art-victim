@@ -5,7 +5,6 @@ App.Views.TextComposition = Backbone.View.extend({
   },
 
   generateTextModel: function() {
-    debugger;
     this.counter += 1;
     var userInput = $('#input-text').val();
     //var width = ctx.measureText(userInput).width;

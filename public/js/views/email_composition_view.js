@@ -19,8 +19,8 @@ App.Views.EmailComposition = Backbone.View.extend({
     for (var i = 0; i < images.length; i++) {
       var img = "#" + images[i] + "";
       var img = $(img);
-      var left = parseInt(img.css('left'));
-      var top = parseInt(img.css('top'));
+      var left = parseInt(img.css('left')) - 293;
+      var top = parseInt(img.css('top')) - 124;
       var width = parseInt(img.css('width'));
       var height = parseInt(img.css('height'));
   
@@ -37,7 +37,6 @@ App.Views.EmailComposition = Backbone.View.extend({
   },
 
   paintGraphic: function(ctx, img, left, top, width, height) {
-    console.log(img);
     var newImg = new Image();
     newImg.src = img.attr('src');
     newImg.onload = function() {
