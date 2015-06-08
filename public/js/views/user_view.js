@@ -31,18 +31,21 @@ App.Views.User = Backbone.View.extend({
       for (var i = 0; i < graphicArray.length; i++) {
         var composedGraphic = {};
         var graphic = "[id=" + '"' + graphicArray[i] + '"' + "]";
+        var graphicDiv = "[id=" + '"div-' + graphicArray[i] + '"' + "]";
+
         var style = 
           "width: " + $(graphic).width() + "px; " +
           "height: " + $(graphic).height() + "px; " +
-          "left: " + $(graphic).position().left + "px; " +
-          "top: " + $(graphic).position().top + "px; " +
-          "z-index: " + $(graphic).css('z-index') + "; " +
+          "left: " + $(graphicDiv).position().left + "px; " +
+          "top: " + $(graphicDiv).position().top + "px; " +
+          "z-index: " + $(graphicDiv).css('z-index') + "; " +
           "position: absolute;"
         composedGraphic.data_name = graphicArray[i];
         composedGraphic.name = $(graphic).attr('alt');
         composedGraphic.url = $(graphic).data('url');
         composedGraphic.style = style;
         composedGraphic.type = 'image';
+
         App.savedComposition.push(composedGraphic);
       }
 
@@ -64,6 +67,7 @@ App.Views.User = Backbone.View.extend({
         App.savedComposition.push(composedText);
       }
     this.saveComposition();
+    console.log(App.savedComposition)
     $('#session').html(this.userTemplate(this.model.id));
     App.userCompositionsCollection.fetch();
   },
