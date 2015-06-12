@@ -1,7 +1,7 @@
-var express      = require('express'),
-    models       = require('../models'),
-    Library      = models.libraries,
-    Graphic      = models.graphics;
+var express             = require('express'),
+    models              = require('../models'),
+    Library             = models.libraries,
+    LibraryGraphic      = models.library_graphics;
 
 var libraryRouter = express.Router();
 
@@ -23,14 +23,14 @@ libraryRouter.get('/', function (req, res) {
     });
 });
 
-libraryRouter.get('/:id/graphics', function (req, res) {
+libraryRouter.get('/:id/library_graphics', function (req, res) {
   Library
     .findOne({
       where: {id: req.params.id },
-      include: Graphic
+      include: LibraryGraphic
     })
     .then(function(library) {
-      res.send(library.graphics)
+      res.send(library.library_graphics)
     }, 
     function(err) {
       var errors = err.errors.map(function(error) {
@@ -48,7 +48,7 @@ libraryRouter.get('/:id', function (req, res) {
   Library
     .findOne({
       where: {id: req.params.id },
-      include: Graphic
+      include: LibraryGraphic
     })
     .then(function(library) {
       res.send(library)

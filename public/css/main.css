@@ -4,11 +4,66 @@
   text-align: center;
 }
 
+#frame {
+  pointer-events: none;
+  width: 1100px;
+  height: 850px;
+  z-index: 100;
+  position: absolute;
+  margin: auto;
+  top: 5em;
+  left: 0;
+  right: 0;
+}
+
 #composition-view {
-  width: 900px;
-  height: 550px;
+  width: 870px;
+  height: 720px;
   border-style: solid;
   border-width: 1px;
-  margin-left:auto;
-  margin-right:auto;
+  /*margin-left:auto;*/
+  /*margin-right:auto;*/
+  margin: auto;
+  top: 8em;
+  left: 0;
+  right: 0;
+}
+
+#text-form {
+  padding: 0.75em;
+  margin-top: 43em;
+  width: 15em;
+  display: block;
+  z-index: 110;
+  position: absolute;
+  top: 8em;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  color: grey;
+}
+
+#input-text {
+  height: 2em;
+  width: 14em;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: grey;
+  text-align: center;
+  font-size: 12px;
+}
+
+#submit-text {
+  margin-top: 1em;
+  border: none;
+  border-radius: 1px;
+  background-color: white;
+  color; grey;
+}
+
+#libraries {
+  top: 5em;
+  position: relative;
 }

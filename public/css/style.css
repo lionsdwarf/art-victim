@@ -18,8 +18,8 @@ body {
   left: 400px;
   top: 200px;
   position : relative;
-  max-width: 300px;
-  max-height: 300px;
+  /*max-width: 300px;*/
+  /*max-height: 300px;*/
   margin: auto; 
 }
 
@@ -28,17 +28,11 @@ body {
 }
 
 .composition-background {
-  top : 120px;
-  left: 7.4em;
-  /*left : 400px;*/
-  margin : auto;
-  width : auto;
-  position : absolute;
-  z-index : -1;
-  max-width : 900px;
-  text-align: center;
+  z-index: -1;
   display: inline-block;
-  position: absolute;
+  position: relative;
+  top: 6em;
+  height: 560px;
 }
 
 .library-graphic {

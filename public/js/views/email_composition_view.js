@@ -13,39 +13,34 @@ App.Views.EmailComposition = Backbone.View.extend({
 
   defineImage: function() {
     var canvas = document.getElementById('email-canvas');
-    var images = App.layerOrder;
+    var ctx = canvas.getContext('2d');
 
-    for (var i = 0; i < images.length; i++) {
-    var img = "#" + images[i] + "";
-    var img = $(img);
-    var left = 10;
-    var top = 40;
-    var width = 35;
-    var height = 55;
-    // var left = img.css('left');
-    // var top = img.css('top');
-    // // debugger;
-    img.attr('src') === undefined ? this.paintText(canvas, img, left, top) : this.paintGraphic(canvas, img, left, top, width, height);
+    var sortedCollection = App.compositionGraphicsCollection.sortBy(function(graphic) { return graphic.get('z_index') });
+
+    for (var i = 0; i < sortedCollection.length; i++) {
+      var model = sortedCollection[i].attributes;
+      var left = model.left;
+      var top = model.top;
+      if (model.type === 'text') {
+        this.paintText(ctx, model, left, top);
+      }
+      else {
+        this.paintGraphic(ctx, model, left, top);
+      }
     }
   },
 
-  paintText: function(canvas, img, left, top) {
-    var ctx = canvas.getContext('2d');
-    var text = img.data('text');
+  paintText: function(ctx, model, left, top) {
+    var text = model.user_input;
     ctx.font = "30px Special Elite, cursive";
     ctx.fillText(text, left, top);
   },
 
-  paintGraphic: function(canvas, img, left, top, width, height) {
-
-        var left = 0;
-    var top = 0;
-    var width = 100;
-    var height = 200;
-
-    var ctx = canvas.getContext('2d');
+  paintGraphic: function(ctx, model, left, top) {
+    var height = model.height;
+    var width = model.width;
     var newImg = new Image();
-    newImg.src = img.attr('src');
+    newImg.src = model.url;
     newImg.onload = function() {
       ctx.drawImage(newImg, left, top, width, height);
       newImg.style.display = 'none';
@@ -54,18 +49,5 @@ App.Views.EmailComposition = Backbone.View.extend({
 
 });
 
-
-// var img = new Image();
-// img.src = '/graphics/famous_people/snoop_murder_wt_case.png';
-// // var canvas = document.getElementById('email-canvas');
-// // var ctx = canvas.getContext('2d');
-// img.onload = function() {
-//   ctx.drawImage(img, 0, 0);
-//   img.style.display = 'none';
-// };
-
 // var canvas = document.getElementById("canvas1");
-// var dataURL = canvas.toDataURL();
-
-// var carosine = document.getElementById("carosine-NaN");
 // var dataURL = canvas.toDataURL();

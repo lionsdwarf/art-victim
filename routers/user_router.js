@@ -3,14 +3,15 @@ var express      = require('express'),
     session      = require('express-session'),
     models       = require('../models');
 
-var User         = models.users,
-    Composition  = models.compositions;
+var User                   = models.users,
+    Composition            = models.compositions,
+    CompositionGraphic     = models.composition_graphics;
 
 var userRouter = express.Router();
 
 var restrictAccess = function(req, res, next) {
-  var sessionID = parseInt( req.session.currentUser);  
-  var reqID = parseInt( req.params.id );  
+  var sessionID = parseInt(req.session.currentUser);  
+  var reqID = parseInt(req.params.id);  
 
   sessionID === reqID ? next() : res.status(401).send({err: 401, msg: 'Access restricted'})
 };
@@ -79,12 +80,14 @@ userRouter.delete('/sessions', function (req, res) {
 userRouter.post('/', function (req, res) {
   var username = req.body.username;
   var password = req.body.password;
+  var email = req.body.email;
 
   bcrypt.hash(password, 10, function (err, hash) {
     User
       .create({
         username: username,
-        pswd_digest: hash
+        pswd_digest: hash,
+        email: email
       })
       .then(function(user) {
         res.send(user);
@@ -92,7 +95,9 @@ userRouter.post('/', function (req, res) {
   });
 });
 
-userRouter.get('/:id/compositions', authenticate, restrictAccess, function (req, res) {
+userRouter.get('/:id/compositions', 
+  // authenticate, restrictAccess, 
+  function (req, res) {
   Composition
     .findAll({
       where: { user_id: req.params.id }
@@ -106,8 +111,8 @@ userRouter.post('/:id/compositions', function (req, res) {
   if (req.session.currentUser) {
     Composition
       .create({
-        title: req.body.title,
-        composition: req.body.composition,
+        name: req.body.name,
+        data_name: req.body.data_name,
         user_id: req.session.currentUser
       })
       .then(function(composition) {
@@ -123,6 +128,59 @@ userRouter.post('/:id/compositions', function (req, res) {
   }
 });
 
+userRouter.get('/:id/compositions/:id', function (req, res) {
+  Composition
+    .findOne({
+      where: { id: req.params.id },
+      include: CompositionGraphic
+    })
+    .then(function(composition) {
+      res.send(composition)
+    }, 
+    function(err) {
+      var errors = err.errors.map(function(error) {
+        return error.path + ' - ' + error.message
+      });
+      res.status(404);
+      res.send({
+        status: 404,
+        err: errors
+      });
+    });
+});
+
+userRouter.get('/:id/compositions/:id/composition_graphics', 
+  // authenticate, restrictAccess, 
+  function (req, res) {
+  CompositionGraphic
+    .findAll({
+      where: { composition_id: req.params.id }
+    })
+      .then(function(compositionGraphics) {
+        res.send(compositionGraphics);
+      });
+});
+
+userRouter.post('/:id/compositions/:id/composition_graphics', function (req, res) {
+  CompositionGraphic
+    .create({
+      name: req.body.name,
+      data_name: req.body.data_name,
+      type: req.body.type,
+      url: req.body.url,
+      user_input: req.body.user_input,
+      left: req.body.left,
+      top: req.body.top,
+      width: req.body.width,
+      height: req.body.height,
+      z_index: req.body.z_index,
+      greyscale: req.body.greyscale,
+      composition_id: req.body.composition_id
+    })
+    .then(function(compositionGraphic) {
+      res.send(compositionGraphic)
+    });
+});
 
 userRouter.get('/:id', authenticate, restrictAccess, function (req, res) {
     User

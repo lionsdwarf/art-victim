@@ -9,11 +9,11 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
-    library: {
+    data_name: {
       type: DataTypes.STRING,
       unique: true,
       validate: {
-        notEmpty: { msg: 'Valid library required',
+        notEmpty: { msg: 'Valid library data_name required',
         }
       }
     }
@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        libraries.hasMany(models.graphics, { foreignKey: 'library_id'});
+        libraries.hasMany(models.library_graphics, { foreignKey: 'library_id'});
       }
     }
   });

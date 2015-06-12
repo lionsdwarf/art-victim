@@ -1,18 +1,18 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
   var compositions = sequelize.define("compositions", {
-    title: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         notEmpty: {msg: 'Valid composition title required'}
       }
     },
-    composition: {
-      type: DataTypes.TEXT,
+    data_name: {
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty: {msg: 'Valid composition required'}
+        notEmpty: {msg: 'Valid composition title required'}
       }
     },
     user_id: {
@@ -25,6 +25,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         compositions.belongsTo(models.users, { foreignKey: 'user_id'} );
+        compositions.hasMany(models.composition_graphics, { foreignKey: 'composition_id'} );
       }
     }
   });

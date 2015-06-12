@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING, 
         unique: true
       },
-      library: {
+      data_name: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true

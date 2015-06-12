@@ -25,6 +25,7 @@ var App = {
   placedText: [],
   layerOrder: [],
   savedComposition: [],
-  currentUser: null
+  currentUser: null,
+  currentComposition: null
 }
 

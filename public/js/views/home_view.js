@@ -70,16 +70,19 @@ App.Views.Home = Backbone.View.extend({
 
   signup: function() {
     var username = $('#signup-username').val();
+    var email = $('#signup-email').val();
     var password = $('#signup-password').val();
     var thisPasser = this;
 
     $.post('/users', {
       username: username,
+      email: email,
       password: password
     })
       .done(function() {
-        thisPasser.loginUser(username, password);
+        thisPasser.loginUser(username, email, password);
         $('#signup-username').val('');
+        $('#signup-email').val('');
         $('#signup-password').val('');
       })
       .error(function(response, stuff) {
