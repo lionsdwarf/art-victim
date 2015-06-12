@@ -1,177 +1,249 @@
 var models             = require('./models'),
     Library            = models.libraries,
-    Graphic            = models.graphics,
+    LibraryGraphic     = models.library_graphics,
     backgroundsUrl     = '/graphics/backgrounds',
-    famouspplUrl       = '/graphics/famous_people',
+    famouspplUrl       = '/graphics/celebrities',
     animalsUrl         = '/graphics/animals',
     assortedUrl        = '/graphics/assorted';
 
 var libraries = [
   {
     name: 'Backgrounds',
-    library: 'backgrounds',
-    graphics: [
+    data_name: 'backgrounds',
+    library_graphics: [
       {
         name: 'BehindTheHills',
-        url: backgroundsUrl + '/behind_the_hills.jpg' 
+        data_name: 'BehindTheHills',
+        url: backgroundsUrl + '/behind_the_hills.jpg' ,
+        type: 'background'
       },
       {
         name: 'DeadSeaPink',
-        url: backgroundsUrl + '/dead_sea_pink.jpg' 
+        data_name: 'DeadSeaPink',
+        url: backgroundsUrl + '/dead_sea_pink.jpg' ,
+        type: 'background'
       },
       {
         name: 'NyanCatBreaksMonitor',
-        url: backgroundsUrl + '/nyan_cat_breaks_monitor.jpg' 
+        data_name: 'NyanCatBreaksMonitor',
+        url: backgroundsUrl + '/nyan_cat_breaks_monitor.jpg' ,
+        type: 'background'
       },
       {
         name: 'AmericanFlag',
-        url: backgroundsUrl + '/american_flag.jpg' 
+        data_name: 'AmericanFlag',
+        url: backgroundsUrl + '/american_flag.jpg' ,
+        type: 'background'
       },
       {
         name: 'DaMoon',
-        url: backgroundsUrl + '/da_moon.jpg' 
+        data_name: 'DaMoon',
+        url: backgroundsUrl + '/da_moon.jpg' ,
+        type: 'background'
       },
       {
         name: 'MonaLisa',
-        url: backgroundsUrl + '/mona_lisa.jpg'
+        data_name: 'MonaLisa',
+        url: backgroundsUrl + '/mona_lisa.jpg',
+        type: 'background'
       },
       {
         name: 'PradaMilano',
-        url: backgroundsUrl + '/prada_milano.jpg'
+        data_name: 'PradaMilano',
+        url: backgroundsUrl + '/prada_milano.jpg',
+        type: 'background'
       },
       {
         name: 'GrandCanyon',
-        url: backgroundsUrl + '/gc_first_light.jpg'
+        data_name: 'GrandCanyon',
+        url: backgroundsUrl + '/gc_first_light.jpg',
+        type: 'background'
       }
     ]
   },
   {
-    name: 'Famous People',
-    library: 'famous-people',
-    graphics: [
+    name: 'Celebrities',
+    data_name: 'celebrities',
+    library_graphics: [
       {
         name: 'Elvis',
-        url: famouspplUrl + '/elvis1.png' 
+        data_name: 'Elvis',
+        url: famouspplUrl + '/elvis1.png' ,
+        type: 'graphic'
       },
       {
         name: 'MarilynMansonRose',
-        url: famouspplUrl + '/marilyn_manson_rose.png' 
+        data_name: 'MarilynMansonRose',
+        url: famouspplUrl + '/marilyn_manson_rose.png' ,
+        type: 'graphic'
       },
       {
         name: 'SnoopMWTC',
-        url: famouspplUrl + '/snoop_murder_wt_case.png' 
+        data_name: 'SnoopMWTC',
+        url: famouspplUrl + '/snoop_murder_wt_case.png' ,
+        type: 'graphic'
       },
       {
         name: 'Patrick',
-        url: famouspplUrl + '/patrick.png'
+        data_name: 'Patrick',
+        url: famouspplUrl + '/patrick.png',
+        type: 'graphic'
       },
       {
         name: 'LegoBond',
-        url: famouspplUrl + '/lego_bond.png'
+        data_name: 'LegoBond',
+        url: famouspplUrl + '/lego_bond.png',
+        type: 'graphic'
       },
       {
         name: 'BabySpongeBob',
-        url: famouspplUrl + '/baby_spongebob.png'
+        data_name: 'BabySpongeBob',
+        url: famouspplUrl + '/baby_spongebob.png',
+        type: 'graphic'
       },
       {
         name: 'MariowCoins',
-        url: famouspplUrl + '/mario_coins.png'
+        data_name: 'MariowCoins',
+        url: famouspplUrl + '/mario_coins.png',
+        type: 'graphic'
       },
       {
         name: 'BabyMario',
-        url: famouspplUrl + '/baby_mario.png'
+        data_name: 'BabyMario',
+        url: famouspplUrl + '/baby_mario.png',
+        type: 'graphic'
       },
       {
         name: 'Yoshi',
-        url: famouspplUrl + '/yoshi.png'
+        data_name: 'Yoshi',
+        url: famouspplUrl + '/yoshi.png',
+        type: 'graphic'
       },
     ]
   },
   {
     name: 'Animals',
-    library: 'animals',
-    graphics: [
+    data_name: 'animals',
+    library_graphics: [
       {
         name: 'SmileyDolphin',
-        url: animalsUrl + '/smiley_dolphin.png'
+        data_name: 'SmileyDolphin',
+        url: animalsUrl + '/smiley_dolphin.png',
+        type: 'graphic'
       },
       {
         name: 'SmileyLamb',
-        url: animalsUrl + '/smiley_lamb.png'
+        data_name: 'SmileyLamb',
+        url: animalsUrl + '/smiley_lamb.png',
+        type: 'graphic'
       },
       {
         name: 'PrancingSpottedHorse',
-        url: animalsUrl + '/prancing_spotted_horse.png'
+        data_name: 'PrancingSpottedHorse',
+        url: animalsUrl + '/prancing_spotted_horse.png',
+        type: 'graphic'
       },
       {
         name: 'SquintyCat',
-        url: animalsUrl + '/squinty_cat.png'
+        data_name: 'SquintyCat',
+        url: animalsUrl + '/squinty_cat.png',
+        type: 'graphic'
       },
       {
         name: 'PawingCat',
-        url: animalsUrl + '/pawing_cat.png'
+        data_name: 'PawingCat',
+        url: animalsUrl + '/pawing_cat.png',
+        type: 'graphic'
       },
       {
         name: 'CatwButterflies',
-        url: animalsUrl + '/butterfly_dreamer.png'
+        data_name: 'CatwButterflies',
+        url: animalsUrl + '/butterfly_dreamer.png',
+        type: 'graphic'
       },
       {
         name: 'NYANcat',
-        url: animalsUrl + '/nyan_cat.png'
+        data_name: 'NYANcat',
+        url: animalsUrl + '/nyan_cat.png',
+        type: 'graphic'
       },
       {
         name: 'NYANpikachu',
-        url: animalsUrl + '/nyan_pikachu.png'
+        data_name: 'NYANpikachu',
+        url: animalsUrl + '/nyan_pikachu.png',
+        type: 'graphic'
       },
       {
         name: 'HelloKitty',
-        url: animalsUrl + '/hello_kitty.png'
+        data_name: 'HelloKitty',
+        url: animalsUrl + '/hello_kitty.png',
+        type: 'graphic'
       },
       {
         name: 'HelloKittyDancer',
-        url: animalsUrl + '/hello_kitty_dancer.png'
+        data_name: 'HelloKittyDancer',
+        url: animalsUrl + '/hello_kitty_dancer.png',
+        type: 'graphic'
       },
       {
         name: 'NyanlessCat',
-        url: animalsUrl + '/nyanless_cat.png'
+        data_name: 'NyanlessCat',
+        url: animalsUrl + '/nyanless_cat.png',
+        type: 'graphic'
       },
       {
         name: 'SenorNyanCat',
-        url: animalsUrl + '/senor_nyan_cat.png'
+        data_name: 'SenorNyanCat',
+        url: animalsUrl + '/senor_nyan_cat.png',
+        type: 'graphic'
       },
       {
         name: 'NyanFish',
-        url: animalsUrl + '/nyan_fish.png'
+        data_name: 'NyanFish',
+        url: animalsUrl + '/nyan_fish.png',
+        type: 'graphic'
       }
     ]
   },
   {
     name: 'Assorted',
-    library: 'assorted',
-    graphics: [
+    data_name: 'assorted',
+    library_graphics: [
       {
         name: 'ActiveTank',
-        url: assortedUrl + '/active_tank.png'
+        data_name: 'ActiveTank',
+        url: assortedUrl + '/active_tank.png',
+        type: 'graphic'
       },
       {
         name: 'DiamondBling',
-        url: assortedUrl + '/diamond_bling.png'
+        data_name: 'DiamondBling',
+        url: assortedUrl + '/diamond_bling.png',
+        type: 'graphic'
       },
       {
         name: 'Seduction',
-        url: assortedUrl + '/seduction.png'
+        data_name: 'Seduction',
+        url: assortedUrl + '/seduction.png',
+        type: 'graphic'
       },
       {
         name: 'Brain',
-        url: assortedUrl + '/brain.png'
+        data_name: 'Brain',
+        url: assortedUrl + '/brain.png',
+        type: 'graphic'
       },
       {
         name: 'MaleModel',
-        url: assortedUrl + '/male_model.png'
+        data_name: 'MaleModel',
+        url: assortedUrl + '/male_model.png',
+        type: 'graphic'
       },
       {
         name: 'PizzaMeditation',
-        url: assortedUrl + '/pizza_meditation.png'
+        data_name: 'PizzaMeditation',
+        url: assortedUrl + '/pizza_meditation.png',
+        type: 'graphic'
       }
     ]
   }
@@ -182,14 +254,16 @@ var seedDatabase = function () {
     Library
       .create({
         name: libraryData.name,
-        library: libraryData.library
+        data_name: libraryData.data_name
       })
       .then(function(library) {
-        libraryData.graphics.forEach(function (graphicData) {
-          Graphic
+        libraryData.library_graphics.forEach(function (libraryGraphicData) {
+          LibraryGraphic
             .create({
-              name: graphicData.name,
-              url: graphicData.url,
+              name: libraryGraphicData.name,
+              data_name: libraryGraphicData.data_name,
+              url: libraryGraphicData.url,
+              type: libraryGraphicData.type,
               library_id: library.id
             });
         });
@@ -198,7 +272,7 @@ var seedDatabase = function () {
 }
 
 Library.destroy({ truncate: true }).then(function() {
-  Graphic.destroy({ truncate: true }).then(function() {
+  LibraryGraphic.destroy({ truncate: true }).then(function() {
     seedDatabase();
   });
 });

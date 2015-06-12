@@ -1,58 +1,42 @@
 App.Views.CompositionGraphic = Backbone.View.extend({
   initialize: function() {
-    this.graphicTemplate = Handlebars.compile($('#composition-graphic-template').html());
-    this.el = $(this.graphicTemplate(this.model.toJSON()))
+    this.template = Handlebars.compile($('#composition-graphic-template').html());
+    this.el = $(this.template(this.model.toJSON()));
     this.render();
   },
 
   render: function() {
-    var compositionGraphicTemplate = this.graphicTemplate(this.model.toJSON());
+    var compositionGraphicTemplate = this.template(this.model.toJSON());
     var newCompositionGraphic = this.$el.html(compositionGraphicTemplate);
     //add to array that will define graphics to be saved
-    App.placedGraphics.push(this.model.attributes.data_name);
-    this.defineEndow(newCompositionGraphic);
+    // App.placedGraphics.push(this.model.attributes.data_name);
+    // this.defineEndow(newCompositionGraphic);
+    this.generateSortable();
+    setTimeout(function() { this.endowFunctionality() }.bind(this), 50);
   },
 
-  defineEndow: function(newCompositionGraphic) {
-      var src = this.model.attributes.url;
-      (src.search('/backgrounds') >= 0) ? 
-      this.endowBackground(newCompositionGraphic) : this.generateSortable(newCompositionGraphic);
-  },
-
- endowBackground: function(newCompositionGraphic) {
-    this.$el.find('img')
-      .removeClass('composition-graphic')
-      .addClass('composition-background');
-  },
-
-  generateSortable: function(newCompositionGraphic) {
+  generateSortable: function() {
     //generate unique sortable per new composition graphic
-    var data_name = this.model.attributes.data_name;
-    var name = this.model.attributes.name;
-    var sortable = $('<li>').html(name).prependTo($('#sortables'));
-    $(sortable).attr('id', 'sortable' + data_name);
-    $(sortable).attr('data-name', data_name);
- 
-    setTimeout(function() { this.endowGraphic(newCompositionGraphic) }.bind(this), 50);
+    var newSortableView = new App.Views.Sortable({ model: this.model });
+    this.$el.append(newSortableView.el);
   },
 
-  endowGraphic: function(newCompositionGraphic) {
-    var compGraphicId = newCompositionGraphic.find('img').attr('id');
-    var compGraphicImg = $('#' + compGraphicId);
+  endowFunctionality: function() {
+    var graphicId = this.model.attributes.data_name;
+    var graphicImg = $('#' + graphicId);
 
     var height = 250;
-    var delta = height / parseInt(compGraphicImg.css('height'));
-    var width = delta * parseInt(compGraphicImg.css('width')) + 'px';
+    var delta = height / parseInt(graphicImg.css('height'));
+    var width = delta * parseInt(graphicImg.css('width')) + 'px';
     var height = height + 'px';
 
-    compGraphicImg
+    graphicImg
       .resizable()
-      .css({'height' : height, 'width' : width})
-      ;
+      .css({'height' : height, 'width' : width});
 
-    var compGraphicDiv = compGraphicImg.parent();
+    var graphicDiv = graphicImg.parent();
 
-    compGraphicDiv
+    graphicDiv
       .draggable({
         cursor: 'crosshair',
         containment: 'parent'
@@ -60,8 +44,8 @@ App.Views.CompositionGraphic = Backbone.View.extend({
       .css({'height' : height, 'width' : width})
       ;
 
-    var compGraphicDivId = 'div-' + compGraphicId;
-    compGraphicDiv.attr('id', compGraphicDivId);
+    var graphicDivId = 'div-' + graphicId;
+    graphicDiv.attr('id', graphicDivId);
 
     this.setZIndex();
   },
@@ -72,8 +56,8 @@ App.Views.CompositionGraphic = Backbone.View.extend({
     layerOrder = layerOrder.reverse();
     //set z-indeces according to array order
     for (i = 0; i < layerOrder.length; i++) {
-      var name = layerOrder[i];
-      $('#div-' + name).css('z-index', i);
+      var graphic = layerOrder[i];
+      $('#div-' + graphic).css('z-index', i);
     }
   }
 

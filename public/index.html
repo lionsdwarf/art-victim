@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <title>Art Victim</title>
 
-  // <script src="/jslibraries/jquery.min.js"></script>
-  // <script src="/jslibraries/underscore-min.js"></script>
-  // <script src="/jslibraries/backbone-min.js"></script>
-  // <script src="/jslibraries/handlebars.min.js"></script>
-  // <script src="/jslibraries/jquery-ui.js"></script>
+  <script src="/jslibraries/jquery.min.js"></script>
+  <script src="/jslibraries/underscore-min.js"></script>
+  <script src="/jslibraries/backbone-min.js"></script>
+  <script src="/jslibraries/handlebars.min.js"></script>
+  <script src="/jslibraries/jquery-ui.js"></script>
 
-   <link rel="stylesheet" href="css/jquery_ui.css">
+  <link rel="stylesheet" href="css/jquery_ui.css">
 
 
 
@@ -20,10 +20,10 @@
    // <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
    // <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
    // <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script> -->
-   <!-- <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css"> -->
+   <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css">
 
-<!--    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-   <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'> -->
+   <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
 
    <script src="js/app.js"></script>
 
@@ -40,8 +40,13 @@
    <script src="js/views/login_modal_view.js"></script>
    <script src="js/views/signup_modal_view.js"></script>
    
+   <script src="js/views/sortable_view.js"></script>
+   
    <script src="js/views/composition_text_view.js"></script>
    <script src="js/models/composition_text.js"></script>
+
+   <script src="js/views/composition_background_view.js"></script>
+   <script src="js/models/composition_background.js"></script>
 
    <script src="js/models/composition_graphic.js"></script>
    <script src="js/collections/composition_graphics.js"></script>
@@ -72,11 +77,17 @@
 
   <h1 id="heading" class="heading">Art Victim</h1>
 
-  <div id="home-view" class="column-center">HOMEVIEW
-    <div id="composition-view" >
+  <div id="home-view" class="column-center">
+    <div class="composition">
+    <div id="text-form">
+      <input type="text" name="input-text" id="input-text" placeholder="Add words..."> <br>
+      <input type="submit" id="submit-text" value="Generate">
     </div>
-    <input type="text" name="input-text" id="input-text">
-    <input type="submit" id="submit-text" value="Add to canvas">
+    <img id="frame" src="/graphics/frames/antique_frame.png" alt="frame">
+      <div style="pointer-events: all; z-index: -2; padding-top: 3em;">
+        <div id="composition-view" style="pointer-events: all"></div>
+      </div>
+    </div>
   </div>
  
   <div id="layer-list" class="column-right">
@@ -123,6 +134,7 @@
         <p class="close">x</p>
         <p class="header">Sign up below...</p>
         <input type="text" id="signup-username" placeholder="Create username"><br>
+        <input type="text" id="signup-email" placeholder="Email address"><br>
         <input type="password" id="signup-password" placeholder="Create password"><br>
         <button id="signup-button">Sign up</button>
         <p>...or <a id="log-in-link">log in</a> to an existing account.</p>
@@ -137,16 +149,20 @@
     <div id="email">Email</div>
   </template>
 
-  <template id="graphic-template">
+  <template id="library-graphic-template">
     <img id="{{name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="library-graphic">
   </template>
 
   <template id="composition-graphic-template">
-    <img id="{{data_name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="composition-graphic savable" style="{{style}}">
+    <img id="{{data_name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="composition-graphic savable" style="{{style}} pointer-events: all">
+  </template>
+
+  <template id="composition-background-template">
+    <img id="{{data_name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="composition-background savable" style="{{style}}">
   </template>
 
   <template id="composition-text-template">
-    <canvas id="{{data_name}}" data-name="{{data_name}}" alt="{{name}}" data-text="{{user_input}}" style="{{style}}" height="auto"></canvas>
+    <canvas id="{{data_name}}" data-name="{{data_name}}" alt="{{name}}" data-text="{{user_input}}" style="{{style}}" height="auto" class="composition-text"></canvas>
     <script>
       var canvas = document.getElementById("{{data_name}}");
       var ctx = canvas.getContext("2d");
@@ -155,9 +171,13 @@
     </script>
   </template>
 
+  <template id="sortable-template">
+    <li id="sortable-{{data_name}}" data-name="{{data_name}}">{{name}}</li>
+  </template>
+
   <template id="library-template">
-    <section id="{{id}}">{{name}}</section> 
-      <div id="{{library}}-graphics"></div>
+    <section id="{{data_name}}-{{id}}">{{name}}</section> 
+      <div id="{{data_name}}-graphics"></div>
   </template>
   
   <template id="load-template">
@@ -169,12 +189,12 @@
     <button id="save-to-db">Save</button><br>
   </template>
   
-  <template id="composition-template">
+<!--   <template id="composition-template">
     <img id="{{name}}" src="{{url}}" alt="{{name}}" style="{{style}}">
   </template>
-
+ -->
   <template id="composition-title">
-    <p id ="{{title}}">{{title}}</p>
+    <p id ="{{name}}">{{name}}</p>
   </template>
 
   <template id="email-composition-template">

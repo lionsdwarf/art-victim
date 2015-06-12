@@ -12,7 +12,7 @@ App.Views.TextComposition = Backbone.View.extend({
       data_name: encodeURI(userInput) + '-' + this.counter,
       name: $('#input-text').val() + ' ' + this.counter,
       user_input: userInput,
-      type: 'canvas'
+      type: 'text'
     });
     App.compositionGraphicsCollection.add(newModel);
   }

@@ -14,16 +14,12 @@ App.Views.UserComposition = Backbone.View.extend({
   },
 
   loadComposition: function() {
+    App.currentComposition = this.model.attributes.id;
     App.compositionGraphicsCollection = new App.Collections.CompositionGraphics;
     App.compositionGraphicsCollectionView = new App.Views.CompositionGraphics({
       collection: App.compositionGraphicsCollection
     });
-    var compositionArray = this.model.attributes.composition;
-    compositionArray = JSON.parse(compositionArray);
-    for (var i = 0; i < compositionArray.length; i++) {
-      var graphicModel = compositionArray[i];
-      App.compositionGraphicsCollection.add(graphicModel); 
-    }
-  }
+    App.compositionGraphicsCollection.fetch();
 
+  }
 });

@@ -1,18 +1,16 @@
 var express      = require('express'),
     models       = require('../models');
 
-var Library      = models.libraries,
-    Graphic      = models.graphics,
-    User         = models.users,
-    Composition  = models.compositions;
+var Library             = models.libraries,
+    LibraryGraphic      = models.library_graphics;
 
 var graphicRouter = express.Router();
 
 graphicRouter.get('/', function (req, res) {
-  Graphic
+  LibraryGraphic
     .findAll()
-    .then(function (graphic) {
-      res.send(graphic)
+    .then(function (libraryGraphic) {
+      res.send(libraryGraphic)
     },
     function (err) {
       var errors = err.errors.map(function(error) {
@@ -27,10 +25,10 @@ graphicRouter.get('/', function (req, res) {
 });
 
 graphicRouter.get('/:id', function (req, res) {
-  Graphic
+  LibraryGraphic
     .findOne(req.params.id)
-    .then(function (graphic) {
-      res.send(graphic)
+    .then(function (libraryGraphic) {
+      res.send(libraryGraphic)
     },
     function (err) {
       var errors = err.errors.map(function(error) {

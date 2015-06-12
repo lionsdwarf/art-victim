@@ -15,6 +15,13 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         notEmpty: {msg: 'Valid password required'}
       }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {msg: 'Please enter a valid email address'}
+      }
     }
   }, 
   {

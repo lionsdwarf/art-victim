@@ -1,36 +1,53 @@
 App.Views.CompositionText = Backbone.View.extend({
   initialize: function() {
-    this.textTemplate = Handlebars.compile($('#composition-text-template').html());
+    this.template = Handlebars.compile($('#composition-text-template').html());
+    this.el = $(this.template(this.model.toJSON()));
     this.render();
   },
 
   render: function() {
-    var compositionTextTemplate = this.textTemplate(this.model.toJSON());
+    var compositionTextTemplate = this.template(this.model.toJSON());
     var newCompositionText = this.$el.html(compositionTextTemplate);
-    App.placedText.push(this.model.attributes.data_name);
-    setTimeout(function() { this.endowText(newCompositionText) }.bind(this), 50);
-  },
-
-  endowText: function(newCompositionText) {
-    var compTextId = newCompositionText.find('canvas').attr('id');
-    var compText = '#' + compTextId;
-    var compText = $(compText);
-
-    compText.resizable();
-    compText.draggable({
-      cursor: 'crosshair'
-    });
-    $('.ui-wrapper').css('overflow', '')
     this.generateSortable();
+    $('#input-text').val('');
+    setTimeout(function() { this.endowFunctionality() }.bind(this), 50);
   },
 
   generateSortable: function() {
-    var name = this.model.attributes.data_name;
-    var sortable = $('<li>').html(name).prependTo($('#sortables'));
-    $(sortable).attr('id', 'sortable' + name);
-    $(sortable).attr('data-name', name); 
-  
-    this.setZIndex()
+    var newSortableView = new App.Views.Sortable({ model: this.model });
+    this.$el.append(newSortableView.el)
+  },
+
+  endowFunctionality: function() {
+    var graphicId = this.model.attributes.data_name;
+    var graphicImg = $('#' + graphicId);
+
+    var height = 250;
+    var delta = height / parseInt(graphicImg.css('height'));
+    var width = delta * parseInt(graphicImg.css('width')) + 'px';
+    var height = height + 'px';
+
+    graphicImg
+      .resizable()
+      .css({'height' : height, 'width' : width});
+
+    var graphicDiv = graphicImg.parent();
+
+    graphicDiv
+      .draggable({
+        cursor: 'crosshair',
+        containment: 'parent'
+      })
+      .css({
+        'height' : height, 
+        'width' : width, 
+        'overflow' : ''})
+      ;
+
+    var graphicDivId = 'div-' + graphicId;
+    graphicDiv.attr('id', graphicDivId);
+
+    this.setZIndex();
   },
 
   setZIndex: function() {
@@ -39,9 +56,9 @@ App.Views.CompositionText = Backbone.View.extend({
     layerOrder = layerOrder.reverse();
     //set z-indeces according to array order
     for (i = 0; i < layerOrder.length; i++) {
-      var name = layerOrder[i];
-      var obj = $('#' + name);      
-      obj.css('z-index', i);
+      var graphic = layerOrder[i];
+      $('#div-' + graphic).css('z-index', i);
     }
   }
+
 });

@@ -14,7 +14,7 @@ App.Views.Library = Backbone.View.extend({
 
   renderLibraryGraphicsCollection: function() {
     var libraryModel = this.model;
-    var collectionName = libraryModel.get('library');
+    var collectionName = libraryModel.get('data_name');
     var libraryGraphicsCollection = new App.Collections.LibraryGraphics(libraryModel);
     var libraryGraphicsCollectionView = new App.Views.LibraryGraphics({
       el: '#' + collectionName + '-graphics',

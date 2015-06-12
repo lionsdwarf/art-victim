@@ -7,15 +7,17 @@ var application_root = __dirname,
     session          = require('express-session'),
     models           = require('./models');
 
-var libraryRouter       = require('./routers/library_router.js'),
-    graphicRouter       = require('./routers/graphic_router.js'),
-    userRouter          = require('./routers/user_router.js'),
-    compositionRouter   = require('./routers/composition_router.js');
+var libraryRouter              = require('./routers/library_router.js'),
+    libraryGraphicRouter       = require('./routers/library_graphic_router.js'),
+    userRouter                 = require('./routers/user_router.js'),
+    compositionRouter          = require('./routers/composition_router.js'),
+    compositionGraphicRouter   = require('./routers/composition_graphic_router.js');
 
-var Library          = models.libraries,
-    Graphic          = models.graphics,
-    User             = models.users,
-    Composition      = models.compositions;
+var Library                 = models.libraries,
+    LibraryGraphic          = models.library_graphics,
+    User                    = models.users,
+    Composition             = models.compositions,
+    CompositionGraphic      = models.composition_graphics;
 
 var app = express();
 
@@ -30,9 +32,10 @@ app.use(session({
 }));
 
 app.use('/libraries', libraryRouter);
-app.use('/graphics', graphicRouter);
+app.use('/library_graphics', libraryGraphicRouter);
 app.use('/users', userRouter);
 app.use('/compositions', compositionRouter);
+app.use('/composition_graphics', compositionGraphicRouter);
 
 app.set('port', process.env.PORT || 5000);
 
