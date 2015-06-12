@@ -4,10 +4,6 @@
   text-align: center;
 }
 
-.column-center .composition {
-  position: static;
-}
-
 #frame {
   pointer-events: none;
   width: 1100px;
@@ -15,7 +11,7 @@
   z-index: 100;
   position: absolute;
   margin: auto;
-  top: 8em;
+  top: 5em;
   left: 0;
   right: 0;
 }
@@ -35,7 +31,7 @@
 
 #text-form {
   padding: 0.75em;
-  margin-top: 46em;
+  margin-top: 43em;
   width: 15em;
   display: block;
   z-index: 110;
