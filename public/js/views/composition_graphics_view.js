@@ -70,7 +70,7 @@ App.Views.CompositionGraphics = Backbone.View.extend({
       if (graphic.attributes.type === 'background') {
         var zIndex = -1;
         var top = parseInt($(graphicId).css('top'));
-        var left = parseInt($(graphicId).css('left'));
+        var left = 0;
       }
       else {
         var graphicDivId = "[id=" + '"div-' + graphicDataName + '"' + "]";

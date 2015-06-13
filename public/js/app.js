@@ -21,11 +21,9 @@ var App = {
   Models: {},
   Collections: {},
   Views: {},
-  placedGraphics: [],
-  placedText: [],
   layerOrder: [],
-  savedComposition: [],
   currentUser: null,
-  currentComposition: null
+  currentComposition: null,
+  graphicEl: '#composition-view'
 }
 

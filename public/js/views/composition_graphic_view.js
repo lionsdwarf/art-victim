@@ -12,7 +12,12 @@ App.Views.CompositionGraphic = Backbone.View.extend({
     // App.placedGraphics.push(this.model.attributes.data_name);
     // this.defineEndow(newCompositionGraphic);
     this.generateSortable();
-    setTimeout(function() { this.endowFunctionality() }.bind(this), 50);
+    if (this.model.attributes.id) {
+      setTimeout(function() { this.endowPersisted() }.bind(this), 50);
+    }
+    else {
+      setTimeout(function() { this.endowNew() }.bind(this), 50);
+    }
   },
 
   generateSortable: function() {
@@ -21,7 +26,40 @@ App.Views.CompositionGraphic = Backbone.View.extend({
     this.$el.append(newSortableView.el);
   },
 
-  endowFunctionality: function() {
+  endowPersisted: function() {
+    var graphicId = this.model.attributes.data_name;
+    var graphicImg = $('#' + graphicId);
+
+    var height = this.model.attributes.height + 'px';
+    var width = this.model.attributes.width + 'px';
+    var left = this.model.attributes.left + 'px';
+    var top = this.model.attributes.top + 'px';
+
+    graphicImg
+      .resizable()
+      .css({'height' : height, 'width' : width});
+
+    var graphicDiv = graphicImg.parent();
+
+    graphicDiv
+      .draggable({
+        cursor: 'crosshair',
+        containment: 'parent'
+      })
+      .css({
+        'height' : height, 
+        'width' : width, 
+        'left' : left, 
+        'top' : top})
+      ;
+
+    var graphicDivId = 'div-' + graphicId;
+    graphicDiv.attr('id', graphicDivId);
+
+    this.setZIndex();
+  },
+
+  endowNew: function() {
     var graphicId = this.model.attributes.data_name;
     var graphicImg = $('#' + graphicId);
 
