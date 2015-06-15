@@ -24,7 +24,9 @@ App.Views.User = Backbone.View.extend({
   },
 
   saveComposition: function() {
-    App.compositionGraphicsCollectionView.saveComposition();
+    var userCompositionModel = new App.Models.UserComposition;
+    var userCompositionView = new App.Views.UserComposition({ model: userCompositionModel });
+    userCompositionView.saveNew();
   },
 
   renderSaveModal: function() {

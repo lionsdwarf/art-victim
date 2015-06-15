@@ -57,7 +57,6 @@ App.Views.EmailComposition = Backbone.View.extend({
     var top = model.top;
     var height = model.height;
     var width = model.width;
-    debugger;
     var graphic = new Image();
     graphic.src = model.url;
     graphic.onload = function() {

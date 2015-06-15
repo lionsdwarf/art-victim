@@ -7,10 +7,10 @@ App.Views.TextComposition = Backbone.View.extend({
   generateTextModel: function() {
     this.counter += 1;
     var userInput = $('#input-text').val();
-    //var width = ctx.measureText(userInput).width;
+    var dataName = userInput.replace(/\W/g, '') + '-' + this.counter;
     var newModel = new App.Models.CompositionText({
-      data_name: encodeURI(userInput) + '-' + this.counter,
-      name: $('#input-text').val() + ' ' + this.counter,
+      data_name: dataName,
+      name: userInput + ' ' + this.counter,
       user_input: userInput,
       type: 'text'
     });

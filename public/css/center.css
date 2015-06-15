@@ -6,8 +6,8 @@
 
 #frame {
   pointer-events: none;
-  width: 1100px;
-  height: 850px;
+  width: 1000px;
+  height: 775px;
   z-index: 100;
   position: absolute;
   margin: auto;
@@ -17,21 +17,22 @@
 }
 
 #composition-view {
-  width: 870px;
-  height: 720px;
+  width: 850px;
+  height: 700px;
   border-style: solid;
   border-width: 1px;
-  /*margin-left:auto;*/
-  /*margin-right:auto;*/
-  margin: auto;
+  margin-top: 1em;
+  margin-left:auto;
+  margin-right:auto;
+/*  margin: auto;
   top: 8em;
   left: 0;
-  right: 0;
+  right: 0;*/
 }
 
 #text-form {
   padding: 0.75em;
-  margin-top: 43em;
+  margin-top: 18.8em;
   width: 15em;
   display: block;
   z-index: 110;
@@ -58,12 +59,26 @@
 #submit-text {
   margin-top: 1em;
   border: none;
-  border-radius: 1px;
+  border-radius: 24px;
   background-color: white;
   color; grey;
+
 }
 
 #libraries {
   top: 5em;
   position: relative;
 }
+
+#text-view {
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.cg {
+  position: absolute;
+  width: 850px;
+  height: 700px;
+}
+

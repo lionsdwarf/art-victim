@@ -59,7 +59,7 @@ App.Views.Home = Backbone.View.extend({
       .fail(function(response) {
         var err = response.responseJSON;
         alert(err.err + ' - ' + err.msg);
-      });;  
+      });  
   },
 
   login: function() {
