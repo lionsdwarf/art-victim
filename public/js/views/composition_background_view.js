@@ -6,7 +6,7 @@ App.Views.CompositionBackground = Backbone.View.extend({
   },
 
   render: function() {
-    $('.composition-background').remove();
+    $('#background-view').empty();
     var compositionBackgroundTemplate = this.template(this.model.toJSON());
     var newCompositionBackground = this.$el.html(compositionBackgroundTemplate);
   },

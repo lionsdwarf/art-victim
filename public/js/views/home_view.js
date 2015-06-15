@@ -14,10 +14,11 @@ App.Views.Home = Backbone.View.extend({
     'click #login' : 'showLoginModal',
     'click #sign-up-link' : 'showSignupModal',
     'click #log-in-link' : 'showLoginModal',
-    'click .close' : 'hideModals'
+    'click .home-close' : 'hideModals'
   },
 
   fetchAndRenderSession: function() {
+    console.log('called')
     $.get('/users/current_user').done(function(user) {
       if (user) {
         var userModel = new App.Models.User({ id: user.id });  
@@ -47,7 +48,7 @@ App.Views.Home = Backbone.View.extend({
 
   hideModals: function() {
     App.loginModal.close();
-    App.signupModal.close();
+    App.signupModal.close();    
   },
 
   loginUser: function(username, password) {

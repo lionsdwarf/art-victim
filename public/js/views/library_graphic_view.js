@@ -4,7 +4,7 @@ App.Views.LibraryGraphic = Backbone.View.extend({
   initialize: function() {
     this.template = Handlebars.compile($('#library-graphic-template').html());
     this.render();
-    this.$el.dblclick(this.cloneModel.bind(this));
+    this.$el.click(this.cloneModel.bind(this));
   },
 
   render: function() {

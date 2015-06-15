@@ -4,16 +4,22 @@ App.Views.User = Backbone.View.extend({
   initialize: function() {
     this.userTemplate = Handlebars.compile($('#user-template').html());
     this.saveTemplate = Handlebars.compile($('#save-template').html());
+    this.compositionsTemplate = Handlebars.compile($('#compositions-template').html());
     $('#session').html(this.userTemplate(this.model.id));
     App.currentUser = this.model.id;
+    this.renderCompositionsModal();
+    this.hideCompositionsModal();
     this.loadCompositions();
-    $('#email').on('click', this.emailComposition);
   },
 
   events: {
     'click #logout' : 'logoutUser',
-    'click #user-save' : 'renderSaveModal',
-    'click #save-to-db' : 'saveComposition'
+    'click #save' : 'renderSaveModal',
+    'click #save-to-db' : 'saveComposition',
+    'click #email' : 'emailComposition',
+    'click .save-close' : 'closeModals',
+    'click #load' : 'showCompositionsModal',
+    'click .compositions-close' : 'hideCompositionsModal'
   },
 
   loadCompositions: function() {
@@ -30,7 +36,19 @@ App.Views.User = Backbone.View.extend({
   },
 
   renderSaveModal: function() {
-    $('#session').html(this.saveTemplate());
+    $('#save-template-el').html(this.saveTemplate());
+  },
+
+  hideCompositionsModal: function() {
+    $('#compositions-template-el').hide();
+  },
+
+  showCompositionsModal: function() {
+    $('#compositions-template-el').show();
+  },
+
+  renderCompositionsModal: function() {
+    $('#compositions-template-el').html(this.compositionsTemplate());
   },
 
   logoutUser: function() {
@@ -38,11 +56,18 @@ App.Views.User = Backbone.View.extend({
       url: '/users/sessions',
       method: 'DELETE',
       })
-        .done(App.homeView.fetchAndRenderSession);
+        .done(function() {
+          App.homeView.fetchAndRenderSession();
+        });
   },
 
   emailComposition: function() {
-    App.emailComposition = new App.Views.EmailComposition;
+    alert('Email functionality coming soon!');
+    // App.emailComposition = new App.Views.EmailComposition;
+  },
+
+  closeModals: function() {
+    $('#session').html(this.userTemplate());
   }
 
 });

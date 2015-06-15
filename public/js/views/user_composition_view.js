@@ -1,15 +1,17 @@
 App.Views.UserComposition = Backbone.View.extend({
   initialize: function() {
-    this.template = Handlebars.compile($('#composition-title').html());
+    this.titleTemplate = Handlebars.compile($('#composition-title').html());
+    this.userTemplate = Handlebars.compile($('#user-template').html());
     this.render();
+    // $('.close').on('click', this.closeSaveModal);
   },
 
   events: { 
-    'dblclick'  : 'loadComposition'
+    'click'  : 'loadComposition'
   },
 
   render: function() {
-    var titleTemplate = this.template(this.model.toJSON());
+    var titleTemplate = this.titleTemplate(this.model.toJSON());
     this.$el.html(titleTemplate);
   },
 
@@ -31,16 +33,20 @@ App.Views.UserComposition = Backbone.View.extend({
       data_name : dataName
     }, {
       success: function(model, response) {
-        App.currentComposition = model.attributes.id
+        App.currentComposition = model.attributes.id;
+        alert('Composition saved.');
       }, 
       error: function() {
         console.log('composition save failure');
+        alter('Unable to save.');
       }
     });
+
     setTimeout(function() { App.compositionGraphicsView.setAttributes() }, 100);
     setTimeout(function() { App.compositionGraphicsCollection.setUrl() }, 100);
-    // App.compositionGraphicsCollection.setUrl()
     setTimeout(function() { App.compositionGraphicsView.save() }, 100);
-    // App.compositionGraphicsView.save();
+
+    // $('#session').html(this.userTemplate());
   }
+
 });
