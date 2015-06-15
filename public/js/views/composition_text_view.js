@@ -26,12 +26,12 @@ App.Views.CompositionText = Backbone.View.extend({
     var userInput = this.model.attributes.user_input;
     var canvas = document.getElementById(canvasId);
     // var jqCanvas = $('#' + canvasId);
-    var ctx = canvas.getContext("2d");
-    ctx.font = "60px Pinyon Script cursive";
+    var ctx = canvas.getContext('2d');
+    ctx.font = '60px Special Elite, cursive';
     ctx.fillStyle = 'white';
-    var width = parseInt(ctx.measureText(userInput).width);
+    // var width = parseInt(ctx.measureText(userInput).width);
     // jqCanvas.css('width', width);
-    ctx.fillText(userInput, 10, 50, width);
+    ctx.fillText(userInput, 10, 50);
   },
 
   generateSortable: function() {

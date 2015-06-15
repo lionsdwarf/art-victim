@@ -74,8 +74,8 @@
 </head>
 <body>
 
-  <h1 id="heading" class="heading">
-    <img src="graphics/logos/artvictim_bolt.png" alt="Art\Victim">
+  <h1 id="heading" class="heading">Art Victim
+    <!-- <img src="graphics/logos/artvictim_bolt.png" alt="Art\Victim"> -->
   </h1>
 
   <div id="home-view" class="column-center">
@@ -85,14 +85,19 @@
         <input type="submit" id="submit-text" value="Enter">
       </div>
       <img id="frame" src="/graphics/frames/antique_frame.png" alt="frame">
-        <!-- <div style="pointer-events: all; z-index: -2; padding-top: 3em;"> -->
-        
         <div id="composition-view" style="pointer-events: all">
-          <div id="graphic-view"></div>
-          <div id="background-view"></div>
+          <div id="graphic-view">A</div>
+          <div id="background-view">
+            <div id="tips">  
+             <h3 id="tips-heading">Welcome.</h3>
+              <h5>Add to your canvas from the graphic libraries below</h5>
+              <h5>Sortables control layering here ------>> </h5>
+              <h5>Log in to save compositions</h5>
+              <h5>Email functionality coming soon!</h5>
+             <h4>Please create as you wish.</h4>
+            </div>
+          </div>
         </div>
-
-        <!-- </div> -->
     </div>
   </div>
  
@@ -113,12 +118,10 @@
   
   <div id="libraries"></div>
 
-  <div id="compositions-list"></div>
-
   <div id="email-composition"></div>
 
   <template id="login-link">
-    <div>Save & Send</div>
+    <div class="action-link">Log in</div>
   </template>
 
   <template id="signup-link"></template>
@@ -126,35 +129,36 @@
   <template id="login-template">
     <div class="modal login-modal">
       <div class="inner-border">
-        <p class="close">x</p>
+        <p class="close home-close">x</p>
         <p class="header">Please log in...</p>
         <input type="text" id="login-username" placeholder="username"><br>
         <input type="password" id="login-password" placeholder="password"><br>
         <button id="login-button">Log in</button>
-        <p>...or <a id="sign-up-link">sign up</a> for an account.</p>
+        <p>...or <a id="sign-up-link" class="line-link">sign up</a> for an account.</p>
       </div>
-    </div>
   </template>
 
   <template id="signup-template"> 
     <div class="modal signup-modal">
       <div class="inner-border">
-        <p class="close">x</p>
+        <p class="close home-close">x</p>
         <p class="header">Sign up below...</p>
         <input type="text" id="signup-username" placeholder="Create username"><br>
         <input type="text" id="signup-email" placeholder="Email address"><br>
         <input type="password" id="signup-password" placeholder="Create password"><br>
         <button id="signup-button">Sign up</button>
-        <p>...or <a id="log-in-link">log in</a> to an existing account.</p>
+        <p>...or <a id="log-in-link" class="line-link">log in</a> to an existing account.</p>
       </div>
     </div>
   </template>
 
   <template id="user-template">
-    <div id="logout">Logout</div>
-    <div id="user-save">Save</div>
-    <div id="user-load">Load</div>
-    <div id="email">Email</div>
+    <div id="save" class="action-link">Save</div>
+    <div id="load" class="action-link">Load </div>
+    <div id="email" class="action-link">Email</div>
+    <div id="logout" class="action-link logout">Logout</div>
+    <div id="save-template-el"></div>
+    <div id="compositions-template-el"></div>
   </template>
 
   <template id="library-graphic-template">
@@ -191,8 +195,24 @@
   </template>
   
   <template id="save-template">
-    <input type="text" id="title" placeholder="title"><br>
-    <button id="save-to-db">Save</button><br>
+    <div class="modal save-modal">
+      <div class="inner-border">
+        <p class="save-close close">x</p>
+        <h3>Save composition...</h3>
+        Title :<input type="text" id="title" placeholder="title"><br>
+        <button id="save-to-db">Save</button><br>
+      </div>
+    </div>
+  </template>
+
+  <template id="compositions-template">
+    <div class="modal">
+      <div class="inner-border">
+        <p class="compositions-close close">x</p>
+        <h2>Your compositions...</h2>
+        <div id="compositions-list"></div>
+      </div>
+    </div>
   </template>
 
   <template id="composition-title">

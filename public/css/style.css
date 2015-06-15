@@ -6,51 +6,47 @@ body {
 
 .heading {
   text-align: center;
-}
-
-.draggable {
-  /*width: 200px;*/
-/*  padding: 0.5em; 
-  float: left; 
-  margin: 0 10px 10px 0; */  
+  font-size: 130px;
+  margin-top: 0;
+  margin-bottom: 0.2em;
+  font-weight: 100;
 }
 
 .composition-graphic {
-/*  left: 400px;
-  top: 200px;*/
   position : relative;
-  /*max-width: 300px;*/
-  /*max-height: 300px;*/
-  /*margin: auto; */
 }
 
-#graphics {
-  /*margin-top: 550px;*/
+.composition-graphic:hover {
+  cursor: move; 
+  cursor: move; 
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.composition-graphic:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
 }
 
 .composition-background {
   z-index: -1;
   display: inline-block;
   position: relative;
-  top: 2em;
   height: 560px;
 }
 
 .library-graphic {
   max-width: 300px;
   max-height: 400px;
+  cursor: pointer;
 }
 
 .graphic-div {
   display: inline-block;
   padding: 0.1em;
 }
-
-/*#layer-list {
-  display: inline-block;
-  text-align: right;
-  float: right;
-}*/
 
 
 

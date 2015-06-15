@@ -6,22 +6,22 @@
 
 #frame {
   pointer-events: none;
-  width: 1000px;
-  height: 775px;
+  width: 900px;
+  height: 700px;
   z-index: 100;
   position: absolute;
   margin: auto;
-  top: 5em;
+  top: 5.7em;
   left: 0;
   right: 0;
 }
 
 #composition-view {
-  width: 850px;
-  height: 700px;
+  width: 830px;
+  height: 650px;
   border-style: solid;
   border-width: 1px;
-  margin-top: 1em;
+  /*margin-top: 1em;*/
   margin-left:auto;
   margin-right:auto;
 /*  margin: auto;
@@ -32,12 +32,12 @@
 
 #text-form {
   padding: 0.75em;
-  margin-top: 18.8em;
+  margin-top: 16.5em;
   width: 15em;
   display: block;
   z-index: 110;
   position: absolute;
-  top: 8em;
+  top: 8.5em;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -66,7 +66,7 @@
 }
 
 #libraries {
-  top: 5em;
+  top: 1em;
   position: relative;
 }
 
@@ -82,3 +82,16 @@
   height: 700px;
 }
 
+#graphic-view {
+  font-family: 'Special Elite', cursive;
+  color: rgba(1, 1, 1, 1);
+}
+
+#tips-heading {
+  margin-top: 4em;
+  margin-bottom: 0.5em;
+}
+
+#tips h5 {
+  margin: 0.8em;
+}

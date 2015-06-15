@@ -1,7 +1,7 @@
 .modal {
   /* overlapping */
   position: absolute;
-  top: 5.5em;
+  top: 16em;
   /* centering */
   left:0;
   right:0;
@@ -14,7 +14,8 @@
   border-width: 2px;
   border-style: solid;
   border-color: black;
-  
+  background-color: white;
+  z-index: 500;
 }
 
 .login-modal {
@@ -43,4 +44,17 @@
   border-color: black;
   border-width: 1px;
   margin: 3px;
+}
+
+#save-to-db {
+  margin-bottom: 3em;
+}
+
+.line-link {
+  color: hotpink;
+  cursor:pointer;
+}
+
+.line-link:hover {
+  color: black;
 }

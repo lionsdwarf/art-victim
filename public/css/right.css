@@ -36,24 +36,11 @@ li {
   border-radius: 0.2em;
   background-repeat: no-repeat;
   color: black;
-
 }
 
 .greyscale {
   -webkit-filter: grayscale(100%); 
   filter: grayscale(100%); 
-}
-
-.sortable-text {
-/*  padding-bottom: 5px;
-  padding-top: 5px;
-
-  padding-left: 5px;
-  padding-right: 5px;
-  position: relative;
-
-  background-color: lightgrey;
-  text-align: left;*/
 }
 
 .controller {
@@ -72,12 +59,15 @@ li {
 }
 
 .greyscale-controller:hover {
-color: blue;
-
+color: hotpink;
 /*position: relative;*/
 }
 
 .delete-controller {
   float: right;
   padding-right: 10px;
+}
+
+.delete-controller:hover {
+  color: DarkRed;
 }

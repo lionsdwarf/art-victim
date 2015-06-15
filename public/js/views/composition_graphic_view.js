@@ -99,7 +99,7 @@ App.Views.CompositionGraphic = Backbone.View.extend({
     //set z-indeces according to array order
     for (i = 0; i < layerOrder.length; i++) {
       var graphic = layerOrder[i];
-      $('#div-' + graphic).css('z-index', i);
+      $('#div-' + graphic).css('z-index', (i + 1));
     }
   },
 
