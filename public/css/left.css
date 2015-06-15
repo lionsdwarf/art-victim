@@ -1,5 +1,8 @@
 .column-left {
+  padding-top: 10px;
   display: inline;
   float: left;
   width: 20%;
+  font-size: 45px;
+
 }

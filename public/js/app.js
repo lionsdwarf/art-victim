@@ -6,7 +6,7 @@ $(function() {
   App.librariesCollection.fetch();
 
   App.compositionGraphicsCollection = new App.Collections.CompositionGraphics;
-  App.compositionGraphicsCollectionView = new App.Views.CompositionGraphics({
+  App.compositionGraphicsView = new App.Views.CompositionGraphics({
     collection: App.compositionGraphicsCollection
   });
 
@@ -21,10 +21,7 @@ var App = {
   Models: {},
   Collections: {},
   Views: {},
-  placedGraphics: [],
-  placedText: [],
   layerOrder: [],
-  savedComposition: [],
   currentUser: null,
   currentComposition: null
 }

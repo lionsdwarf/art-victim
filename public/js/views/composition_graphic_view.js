@@ -8,11 +8,14 @@ App.Views.CompositionGraphic = Backbone.View.extend({
   render: function() {
     var compositionGraphicTemplate = this.template(this.model.toJSON());
     var newCompositionGraphic = this.$el.html(compositionGraphicTemplate);
-    //add to array that will define graphics to be saved
-    // App.placedGraphics.push(this.model.attributes.data_name);
-    // this.defineEndow(newCompositionGraphic);
+
     this.generateSortable();
-    setTimeout(function() { this.endowFunctionality() }.bind(this), 50);
+    if (this.model.attributes.id) {
+      setTimeout(function() { this.endowPersisted() }.bind(this), 50);
+    }
+    else {
+      setTimeout(function() { this.endowNew() }.bind(this), 50);
+    }
   },
 
   generateSortable: function() {
@@ -21,7 +24,41 @@ App.Views.CompositionGraphic = Backbone.View.extend({
     this.$el.append(newSortableView.el);
   },
 
-  endowFunctionality: function() {
+  endowPersisted: function() {
+    var graphicId = this.model.attributes.data_name;
+    var graphicImg = $('#' + graphicId);
+
+    var height = this.model.attributes.height + 'px';
+    var width = this.model.attributes.width + 'px';
+    var left = this.model.attributes.left + 'px';
+    var top = this.model.attributes.top + 'px';
+
+    graphicImg
+      .resizable()
+      .css({'height' : height, 'width' : width});
+
+    var graphicDiv = graphicImg.parent();
+
+    graphicDiv
+      .draggable({
+        cursor: 'crosshair',
+        containment: 'parent'
+      })
+      .css({
+        'height' : height, 
+        'width' : width, 
+        'left' : left, 
+        'top' : top,
+        'overflow' : 'visible'
+      });
+
+    var graphicDivId = 'div-' + graphicId;
+    graphicDiv.attr('id', graphicDivId);
+
+    this.setZIndex();
+  },
+
+  endowNew: function() {
     var graphicId = this.model.attributes.data_name;
     var graphicImg = $('#' + graphicId);
 
@@ -41,8 +78,13 @@ App.Views.CompositionGraphic = Backbone.View.extend({
         cursor: 'crosshair',
         containment: 'parent'
       })
-      .css({'height' : height, 'width' : width})
-      ;
+      .css({
+        'height' : height, 
+        'width' : width,
+        'top' : '200px',
+        'left' : '200px',
+        'overflow' : 'visible'
+      });
 
     var graphicDivId = 'div-' + graphicId;
     graphicDiv.attr('id', graphicDivId);
@@ -59,6 +101,25 @@ App.Views.CompositionGraphic = Backbone.View.extend({
       var graphic = layerOrder[i];
       $('#div-' + graphic).css('z-index', i);
     }
+  },
+
+  setAttributes: function() {
+    var graphicDataName = this.model.attributes.data_name;
+    var graphicId = '#' + graphicDataName;
+    var graphicDivId = '#div-' + graphicDataName;
+    
+    this.model.set({
+      z_index : parseInt($(graphicDivId).css('z-index')),
+      top : parseInt($(graphicDivId).css('top')),
+      left : parseInt($(graphicDivId).css('left')),
+      width : $(graphicId).width(),
+      height : $(graphicId).height(),
+      composition_id : App.currentComposition
+    });
+  },
+
+  save: function() {
+    this.model.save();
   }
 
 });

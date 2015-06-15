@@ -182,6 +182,17 @@ userRouter.post('/:id/compositions/:id/composition_graphics', function (req, res
     });
 });
 
+userRouter.delete('/:id/compositions/:id/composition_graphics/:id', function (req, res) {
+  CompositionGraphic
+    .findOne(req.params.id)
+    .then(function(compGraphic) {
+      compGraphic.destroy()
+      .then(function(deletedCompGraphic) {
+        res.send(deletedCompGraphic);
+      });
+    });
+});
+
 userRouter.get('/:id', authenticate, restrictAccess, function (req, res) {
     User
       .findOne({

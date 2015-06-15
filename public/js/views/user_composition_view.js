@@ -16,10 +16,31 @@ App.Views.UserComposition = Backbone.View.extend({
   loadComposition: function() {
     App.currentComposition = this.model.attributes.id;
     App.compositionGraphicsCollection = new App.Collections.CompositionGraphics;
-    App.compositionGraphicsCollectionView = new App.Views.CompositionGraphics({
+    App.compositionGraphicsView = new App.Views.CompositionGraphics({
       collection: App.compositionGraphicsCollection
     });
     App.compositionGraphicsCollection.fetch();
+  },
 
+  saveNew: function() {
+    var name = $('#title').val();
+    var dataName = name.replace(/\s/g,'');
+
+    this.model.save({
+      name : name,
+      data_name : dataName
+    }, {
+      success: function(model, response) {
+        App.currentComposition = model.attributes.id
+      }, 
+      error: function() {
+        console.log('composition save failure');
+      }
+    });
+    setTimeout(function() { App.compositionGraphicsView.setAttributes() }, 100);
+    setTimeout(function() { App.compositionGraphicsCollection.setUrl() }, 100);
+    // App.compositionGraphicsCollection.setUrl()
+    setTimeout(function() { App.compositionGraphicsView.save() }, 100);
+    // App.compositionGraphicsView.save();
   }
 });

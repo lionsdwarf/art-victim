@@ -1,7 +1,10 @@
 App.Views.CompositionGraphics = Backbone.View.extend({
   el: '#composition-view',
+  graphicCounter: 0,
+  graphicViews: [],
   initialize: function() {
-    this.$el.empty();
+    // $('#background-view').empty();
+    // $('#graphic-view').empty();
     $('#sortables').empty();
     this.listenTo(this.collection, 'add', this.defineModel);
   },
@@ -19,86 +22,46 @@ App.Views.CompositionGraphics = Backbone.View.extend({
   },
 
   renderCompositionText: function(newModel) {
+    this.newGraphicEl();
+    var element = '#cg-' + this.graphicCounter; 
     var newCompositionTextView = new App.Views.CompositionText({ model: newModel });
-    this.$el.append(newCompositionTextView.el);
+    $(element).append(newCompositionTextView.el);
+    this.graphicViews.push(newCompositionTextView);
   },
 
   renderCompositionGraphic: function(newModel) {
+    this.newGraphicEl();
+    var element = '#cg-' + this.graphicCounter 
     var newCompositionGraphicView = new App.Views.CompositionGraphic({ model: newModel });
-    this.$el.append(newCompositionGraphicView.el);
+    $(element).append(newCompositionGraphicView.el);
+    this.graphicViews.push(newCompositionGraphicView);
   },
 
   renderCompositionBackground: function(newModel) {
     var newCompositionBackgroundView = new App.Views.CompositionBackground({
       model: newModel
     });
-    this.$el.append(newCompositionBackgroundView.el);
+    $('#background-view').append(newCompositionBackgroundView.el);
+    this.graphicViews.push(newCompositionBackgroundView);
   },
 
-  saveComposition: function() {
-    var name = $('#title').val();
-    var dataName = name.replace(/\s/g,'');
-    var url = '/users/' + App.currentUser + '/compositions';
+  newGraphicEl: function() {
+    this.graphicCounter += 1;
+    var newDiv = $('<div>').addClass('cg');
+    var newDivId = 'cg-' + this.graphicCounter;
+    newDiv.attr('id', newDivId);
+    newDiv.appendTo('#graphic-view');
+  },
 
-    function save(id) {
-      return $.ajax({
-        url : url,
-        method: 'POST',    
-        data: {
-          'name' : name,
-          'data_name' : dataName,
-          'user_id' : App.currentUser
-        }
-      });
+  setAttributes: function() {
+    for (var i = 0; i < this.graphicViews.length; i++) {
+      this.graphicViews[i].setAttributes();
     }
-
-    save('/id').done(function(data) {
-      App.currentComposition = data.id
-    });
-    
-    setTimeout(function() { this.saveCompositionGraphics() }.bind(this), 100);
   },
 
-  saveCompositionGraphics: function() {
-    var collection = App.compositionGraphicsCollection;
-    for (var i = 0; i < collection.length; i++) {
-      var graphic = collection.models[i]
-      var graphicDataName = graphic.attributes.data_name;
-      var graphicId = "[id=" + '"' + graphicDataName + '"' + "]";
-      var url = '/users/' + App.currentUser + '/compositions/' + App.currentComposition + '/composition_graphics';
-      
-      if (graphic.attributes.type === 'background') {
-        var zIndex = -1;
-        var top = parseInt($(graphicId).css('top'));
-        var left = parseInt($(graphicId).css('left'));
-      }
-      else {
-        var graphicDivId = "[id=" + '"div-' + graphicDataName + '"' + "]";
-        var zIndex = parseInt($(graphicDivId).css('z-index'));
-        var top = parseInt($(graphicDivId).css('top'));
-        var left = parseInt($(graphicDivId).css('left'));
-      }
-
-      function save() {
-        $.ajax({
-          url : url,
-          method: 'POST',
-          data: {
-            'name' : graphic.attributes.name,
-            'data_name' : graphicDataName,
-            'url' : graphic.attributes.url,
-            'z_index' : zIndex,
-            'top' : top,
-            'left' : left,
-            'width' : $(graphicId).width(),
-            'height' : $(graphicId).height(),
-            'user_input' : $(graphicId).attr('data-text'),
-            'type' : graphic.attributes.type,
-            'composition_id' : App.currentComposition            
-          }
-        });
-      }
-      save();
+  save: function() {
+    for (var i = 0; i < this.graphicViews.length; i++) {
+      this.graphicViews[i].save();
     }
   }
 });

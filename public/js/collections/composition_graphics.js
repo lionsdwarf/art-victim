@@ -1,6 +1,10 @@
 App.Collections.CompositionGraphics = Backbone.Collection.extend({
   initialize: function() {
-    var cgUrl = '/users/' + App.currentUser + '/compositions/' + App.currentComposition + '/composition_graphics';
-    this.url = cgUrl;
+    this.setUrl();
+  },
+
+  setUrl: function() {
+    var newUrl = '/users/' + App.currentUser + '/compositions/' + App.currentComposition + '/composition_graphics';
+    this.url = newUrl;
   }
 });
