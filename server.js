@@ -12,7 +12,9 @@ throng(start, {
 function start() {
   
 var application_root = __dirname,
+    blitz            = require('blitzkrieg'),
     express          = require('express'),
+    crypto           = require('crypto'),
     bodyParser       = require('body-parser'),
     path             = require('path'),
     logger           = require('morgan'),
@@ -31,9 +33,6 @@ var Library                 = models.libraries,
     User                    = models.users,
     Composition             = models.compositions,
     CompositionGraphic      = models.composition_graphics;
-
-  var blitz = require('blitzkrieg');
-  var crypto = require('crypto');
 
 var app = express();
 
