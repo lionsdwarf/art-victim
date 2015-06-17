@@ -26,6 +26,10 @@
   z-index: 1000;
 }
 
+.modal p {
+  cursor: pointer;
+}
+
 .close {
   margin: 0px;
   padding: 0px;

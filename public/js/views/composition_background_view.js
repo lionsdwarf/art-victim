@@ -17,7 +17,7 @@ App.Views.CompositionBackground = Backbone.View.extend({
 
       this.model.set({
         z_index : -1,
-        top : parseInt($(backgroundId).css('top')),
+        top : 0,
         left : 0,
         width : $(backgroundId).width(),
         height : $(backgroundId).height(),

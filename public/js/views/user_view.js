@@ -9,15 +9,17 @@ App.Views.User = Backbone.View.extend({
     App.currentUser = this.model.id;
     this.renderCompositionsModal();
     this.hideCompositionsModal();
+    this.renderSaveModal();
+    this.hideSaveModal();
     this.loadCompositions();
   },
 
   events: {
     'click #logout' : 'logoutUser',
-    'click #save' : 'renderSaveModal',
+    'click #save' : 'showSaveModal',
     'click #save-to-db' : 'saveComposition',
     'click #email' : 'emailComposition',
-    'click .save-close' : 'closeModals',
+    'click .save-close' : 'hideSaveModal',
     'click #load' : 'showCompositionsModal',
     'click .compositions-close' : 'hideCompositionsModal'
   },
@@ -33,10 +35,20 @@ App.Views.User = Backbone.View.extend({
     var userCompositionModel = new App.Models.UserComposition;
     var userCompositionView = new App.Views.UserComposition({ model: userCompositionModel });
     userCompositionView.saveNew();
+    this.hideSaveModal();
+    $('#title').val('');
   },
 
   renderSaveModal: function() {
     $('#save-template-el').html(this.saveTemplate());
+  },
+
+  showSaveModal: function() {
+    $('#save-template-el').show();
+  },
+
+  hideSaveModal: function() {
+    $('#save-template-el').hide();
   },
 
   hideCompositionsModal: function() {
@@ -44,6 +56,7 @@ App.Views.User = Backbone.View.extend({
   },
 
   showCompositionsModal: function() {
+    App.userCompositionsCollection.fetch();
     $('#compositions-template-el').show();
   },
 

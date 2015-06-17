@@ -6,6 +6,7 @@ App.Views.CompositionGraphics = Backbone.View.extend({
     // $('#background-view').empty();
     // $('#graphic-view').empty();
     $('#sortables').empty();
+    $('#graphic-view').empty();
     this.listenTo(this.collection, 'add', this.defineModel);
   },
 
