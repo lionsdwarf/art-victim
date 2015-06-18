@@ -8,9 +8,9 @@ var env       = process.env.NODE_ENV || "development";
 var config    = require(__dirname + '/../config/config.json')[env];
 
 
-if (process.env.HEROKU_POSTGRESQL_CRIMSON_URL) {
+if (process.env.CRIMSON_URL) {
     // the application is executed on Heroku ... use the postgres database
-    sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_CRIMSON_URL, {
+    sequelize = new Sequelize(process.env.CRIMSON_URL, {
       dialect:  'postgres',
       protocol: 'postgres',
       logging:  true //false
