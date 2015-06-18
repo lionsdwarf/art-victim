@@ -2,11 +2,12 @@ App.Views.User = Backbone.View.extend({
   el:'#session',
 
   initialize: function() {
+    App.currentUser = this.model.id;
     this.userTemplate = Handlebars.compile($('#user-template').html());
     this.saveTemplate = Handlebars.compile($('#save-template').html());
     this.compositionsTemplate = Handlebars.compile($('#compositions-template').html());
-    $('#session').html(this.userTemplate(this.model.id));
-    App.currentUser = this.model.id;
+    $('#login').empty();
+    $('#logged-in').html(this.userTemplate(this.model.id));
     this.renderCompositionsModal();
     this.hideCompositionsModal();
     this.renderSaveModal();
@@ -72,15 +73,12 @@ App.Views.User = Backbone.View.extend({
         .done(function() {
           App.homeView.fetchAndRenderSession();
         });
+    $('#logged-in').empty();
   },
 
   emailComposition: function() {
     alert('Email functionality coming soon!');
     // App.emailComposition = new App.Views.EmailComposition;
-  },
-
-  closeModals: function() {
-    $('#session').html(this.userTemplate());
   }
 
 });

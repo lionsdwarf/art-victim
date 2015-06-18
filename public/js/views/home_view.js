@@ -20,17 +20,16 @@ App.Views.Home = Backbone.View.extend({
   fetchAndRenderSession: function() {
     $.get('/users/current_user').done(function(user) {
       if (user) {
-        var userModel = new App.Models.User({ id: user.id });  
-        new App.Views.User({ model: userModel });
+        new App.Views.User({ model: user });
       } else {
         $('#login').html(loginLink());
-        $('#signup').html(signupLink());
+        // $('#signup').html(signupLink());
         App.loginModal = new App.Views.LoginModal;
         App.signupModal = new App.Views.SignupModal;
       }
     }).fail(function(jqXHR) {
         if (jqXHR.status === 404) {
-          $('#session').html('Work In Progress');
+          alert('error');
         }
       });
   },
@@ -60,6 +59,9 @@ App.Views.Home = Backbone.View.extend({
         var err = response.responseJSON;
         alert(err.err + ' - ' + err.msg);
       });  
+    $('#login-username').val('');
+    $('#login-password').val('');
+    this.hideModals();
   },
 
   login: function() {
@@ -72,23 +74,31 @@ App.Views.Home = Backbone.View.extend({
     var username = $('#signup-username').val();
     var email = $('#signup-email').val();
     var password = $('#signup-password').val();
+    var passwordConf = $('#password-conf').val();
     var thisPasser = this;
 
-    $.post('/users', {
-      username: username,
-      email: email,
-      password: password
-    })
-      .done(function() {
-        thisPasser.loginUser(username, email, password);
-        $('#signup-username').val('');
-        $('#signup-email').val('');
-        $('#signup-password').val('');
-      })
-      .error(function(response, stuff) {
-        var err = response.responseJSON;
-        alert(err.err + ' - ' + err.msg);
+    if (password === passwordConf) {
+      App.newUser = new App.Models.User();
+      App.newUser.save({
+          username: username,
+          email: email,
+          password: password
+        },
+        {
+          success: function(model, response) {
+            thisPasser.loginUser(username, password);
+          },
+          error: function(model, response) {
+            console.log(model.toJSON());
+            alert('There was a problem.')
+          }
       });
+    }
+    else {
+      alert('Password and password confirmation must match.');
+      var password = $('#signup-password').val('');
+      var passwordConf = $('#password-conf').val('');
+    }
   }
 
 });
