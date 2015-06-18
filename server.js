@@ -34,6 +34,9 @@ var Library                 = models.libraries,
     Composition             = models.compositions,
     CompositionGraphic      = models.composition_graphics;
 
+  var blitz = require('blitzkrieg');
+  var crypto = require('crypto');
+
 var app = express();
 
   app
