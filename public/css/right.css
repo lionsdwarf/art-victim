@@ -6,7 +6,7 @@
 
 #layers {
   text-align: center;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 #layer-list {
@@ -15,7 +15,6 @@
   height: 730px;
   font-size: 25px;
 }
-
 
 #sortable { 
   padding-left: 1.5em;
@@ -29,13 +28,32 @@
 li {
   background: rgba(202, 195, 193, 0.3);
   padding: 0.6em;
-  padding-left: 1.5em; 
+  /*padding-left: 1.5em; */
   /*font-size: 1.0em; */
   list-style-type: none;
   margin: 0.2em;
   border-radius: 0.2em;
   background-repeat: no-repeat;
+  background-size: 8em;
   color: black;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  height: 1.3em;
+}
+
+li:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+#sortable-text {
+  display: inline-block;
+  white-space: nowrap;
+  width: 126px;
+  overflow: hidden;
+  position: relative;
+  
 }
 
 .greyscale {
@@ -49,6 +67,10 @@ li {
   font-family: Helvetica !important;
   font-weight: 100;
   color: darkgrey;
+}
+
+.controller:hover {
+  cursor: pointer;
 }
 
 .greyscale-controller {

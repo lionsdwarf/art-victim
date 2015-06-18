@@ -2,12 +2,13 @@
   display: inline;
   float: left;
   width: 20%;
-  font-size: 45px;
+  font-size: 30px;
 }
 
 .action-link {
   padding: 0.4em;
-  width: 3em;
+  /*width: 3em;*/
+  text-align: center;
 }
 
 .action-link:hover {

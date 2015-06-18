@@ -12,7 +12,9 @@ throng(start, {
 function start() {
   
 var application_root = __dirname,
+    blitz            = require('blitzkrieg'),
     express          = require('express'),
+    crypto           = require('crypto'),
     bodyParser       = require('body-parser'),
     path             = require('path'),
     logger           = require('morgan'),

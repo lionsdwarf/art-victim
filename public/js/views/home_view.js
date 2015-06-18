@@ -18,7 +18,6 @@ App.Views.Home = Backbone.View.extend({
   },
 
   fetchAndRenderSession: function() {
-    console.log('called')
     $.get('/users/current_user').done(function(user) {
       if (user) {
         var userModel = new App.Models.User({ id: user.id });  

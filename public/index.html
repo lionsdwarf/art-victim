@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8">
   <title>Art Victim</title>
+   
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/modals.css">
+  <link rel="stylesheet" href="css/center.css">
+  <link rel="stylesheet" href="css/left.css">
+  <link rel="stylesheet" href="css/right.css">
 
   <script src="/jslibraries/jquery.min.js"></script>
   <script src="/jslibraries/underscore-min.js"></script>
@@ -64,12 +70,6 @@
    <script src="js/views/text_composition_view.js"></script>
    <script src="js/views/email_composition_view.js"></script>
    <script src="js/edit_composition_graphic.js"></script>
-   
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/modals.css">
-  <link rel="stylesheet" href="css/center.css">
-  <link rel="stylesheet" href="css/left.css">
-  <link rel="stylesheet" href="css/right.css">
 
 </head>
 <body>
@@ -81,7 +81,7 @@
   <div id="home-view" class="column-center">
     <div class="composition">
       <div id="text-form">
-        <input type="text" name="input-text" id="input-text" placeholder="Add text..." maxlength="9"> <br>
+        <input type="text" name="input-text" id="input-text" placeholder="Add text..." maxlength="8"> <br>
         <input type="submit" id="submit-text" value="Enter">
       </div>
       <img id="frame" src="/graphics/frames/antique_frame.png" alt="frame">
@@ -89,12 +89,22 @@
           <div id="graphic-view">A</div>
           <div id="background-view">
             <div id="tips">  
+<<<<<<< HEAD
              <h3 id="tips-heading">Welcome.</h3>
               <h5>Start by selecting graphics from the libraries below</h5>
               <h5>Sortables control layering over there ------>> </h5>
+=======
+             <h3 id="tips-heading">Welcome. Here's what to do :</h3>
+              <h5>Select graphics from the libraries below</h5>
+              <h5>Add text to your composition</h5>
+              <h5>Sortables control layering here ----->>> </h5>
+>>>>>>> 6fe6309daa5bc0a667782d480b077e34ab5eb7bd
               <h5>Log in to save compositions</h5>
               <h5>Email functionality coming soon!</h5>
-             <h4>Please create as you wish.</h4>
+              <h4 class="bottom-heading">Please create as you wish. Sincerely,</h4>
+              <!-- <h4 class="bottom-heading"></h4> -->
+              <h3 id="signature">Art Victim</h3>
+             
             </div>
           </div>
         </div>
@@ -179,7 +189,7 @@
 
   <template id="sortable-template">
     <li id="sortable-{{data_name}}" data-name="{{data_name}}" style="background-image : url('{{url}}');">
-      <b class="sortable-text"></b>{{name}}
+      <b id="sortable-text">{{name}}</b>
       <b id="delete-{{data_name}}" class="controller delete-controller">x</b>
       <b id="greyscale-{{data_name}}" class="controller greyscale-controller">b/w</b>
     </li>
