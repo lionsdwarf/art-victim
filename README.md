@@ -2,7 +2,7 @@ Art Victim
 
 General overview
 
-Custom e-card and collage maker. From a variety of graphics libraries, users hand-pick images for their compositions. The graphics have draggable and resizable functionalities as well as layer management. Text can be added as well. Save and load functionality exists for users who sign up. An email feature is in production.
+Custom e-card and collage maker. From a variety of graphics libraries, users hand-pick images for their compositions. The graphics have draggable and resizable functionalities as well as layer management. Text can be added as well. Save and load functionality exists for users who sign up. An email feature is in development.
 
 Technical overview
 
