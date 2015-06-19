@@ -203,6 +203,12 @@ var libraries = [
         url: famouspplUrl + '/yoshi.png',
         type: 'graphic'
       },
+      {
+        name: 'Beavis',
+        data_name: 'Beavis',
+        url: famouspplUrl + '/beavis.png',
+        type: 'graphic'
+      }
     ]
   },
   {
@@ -285,6 +291,36 @@ var libraries = [
         name: 'NyanFish',
         data_name: 'NyanFish',
         url: animalsUrl + '/nyan_fish.png',
+        type: 'graphic'
+      },
+      {
+        name: 'Beetle',
+        data_name: 'Beetle',
+        url: animalsUrl + '/beetle.png',
+        type: 'graphic'
+      },
+      {
+        name: 'Chicken',
+        data_name: 'Chicken',
+        url: animalsUrl + '/chicken.png',
+        type: 'graphic'
+      },
+      {
+        name: 'BrownSlug',
+        data_name: 'BrownSlug',
+        url: animalsUrl + '/brown_slug.png',
+        type: 'graphic'
+      },
+      {
+        name: 'PinkiePie',
+        data_name: 'PinkiePie',
+        url: animalsUrl + '/pinkie_pie.png',
+        type: 'graphic'
+      },
+      {
+        name: 'Spider',
+        data_name: 'Spider',
+        url: animalsUrl + '/spider.png',
         type: 'graphic'
       }
     ]
