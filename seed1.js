@@ -28,6 +28,126 @@ var libraries = [
         data_name: 'GrandCanyon',
         url: backgroundsUrl + '/gc_first_light.jpg',
         type: 'background'
+      },
+      {
+        name: 'BlankTv',
+        data_name: 'BlankTv',
+        url: backgroundsUrl + '/blank_tv.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'CatDonut',
+        data_name: 'CatDonut',
+        url: backgroundsUrl + '/cat_donut.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'Cheif',
+        data_name: 'Cheif',
+        url: backgroundsUrl + '/cheif.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'Claw',
+        data_name: 'Claw',
+        url: backgroundsUrl + '/claw.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'Epiglottis',
+        data_name: 'Epiglottis',
+        url: backgroundsUrl + '/epiglottis.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'JetPuffed',
+        data_name: 'JetPuffed',
+        url: backgroundsUrl + '/jet_puffed.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'lasers',
+        data_name: 'lasers',
+        url: backgroundsUrl + '/lasers.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'MediumRare',
+        data_name: 'MediumRare',
+        url: backgroundsUrl + '/medium_rare.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'MerryMerry',
+        data_name: 'MerryMerry',
+        url: backgroundsUrl + '/merry_gr.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'MonaLisa',
+        data_name: 'MonaLisa',
+        url: backgroundsUrl + '/mona_lisa.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'NativeHorse',
+        data_name: 'NativeHorse',
+        url: backgroundsUrl + '/native_horse.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'NYC',
+        data_name: 'NYC',
+        url: backgroundsUrl + '/nyc_skyline.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'RollerCoaster',
+        data_name: 'RollerCoaster',
+        url: backgroundsUrl + '/roller_coaster.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'SensualDream',
+        data_name: 'SensualDream',
+        url: backgroundsUrl + '/sensual_dream.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'SleepsWithFishes',
+        data_name: 'SleepsWithFishes',
+        url: backgroundsUrl + '/sleeps_w_fishes.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'TurtleBurger',
+        data_name: 'TurtleBurger',
+        url: backgroundsUrl + '/turtle_burger.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'Unnamed',
+        data_name: 'Unnamed',
+        url: backgroundsUrl + '/unnamed.png' ,
+        type: 'background'
+      },
+      {
+        name: 'VeilNebula',
+        data_name: 'VeilNebula',
+        url: backgroundsUrl + '/veil_nebula.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'Wheaties',
+        data_name: 'Wheaties',
+        url: backgroundsUrl + '/wheaties.jpg' ,
+        type: 'background'
+      },
+      {
+        name: 'WildHorses',
+        data_name: 'WildHorses',
+        url: backgroundsUrl + '/wild_horses.jpg' ,
+        type: 'background'
       }
     ]
   },

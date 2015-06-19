@@ -93,3 +93,8 @@ color: hotpink;
 .delete-controller:hover {
   color: DarkRed;
 }
+
+.comp-load-title:hover {
+  color: hotpink;
+}
+

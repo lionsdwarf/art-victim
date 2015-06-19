@@ -31,11 +31,22 @@ body {
 }
 
 .composition-background {
-  z-index: -1;
+/*  z-index: -1;
   display: inline-block;
   position: relative;
   height: 560px;
-  top: 0;
+  max-width: 830px;
+  top: 0;*/
+
+  z-index: -1;
+  display: block;
+  position: relative;
+  height: 444px;
+  max-width: 830px;
+  top: 1.9em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5em;
 }
 
 .library-graphic {
