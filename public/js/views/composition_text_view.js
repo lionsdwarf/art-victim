@@ -21,7 +21,6 @@ App.Views.CompositionText = Backbone.View.extend({
   },
 
   paintText: function() {
-
     var canvasId = this.model.attributes.data_name;
     var userInput = this.model.attributes.user_input;
     var canvas = document.getElementById(canvasId);
