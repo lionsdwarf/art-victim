@@ -148,6 +148,18 @@ var libraries = [
         data_name: 'WildHorses',
         url: backgroundsUrl + '/wild_horses.jpg' ,
         type: 'background'
+      },
+      {
+        name: '8BitSkyline',
+        data_name: '8BitSkyline',
+        url: backgroundsUrl + '/8bit_skyline.png' ,
+        type: 'background'
+      },
+      {
+        name: '8BitSunset',
+        data_name: '8BitSunset',
+        url: backgroundsUrl + '/8bit_sunset.png' ,
+        type: 'background'
       }
     ]
   },
@@ -162,8 +174,8 @@ var libraries = [
         type: 'graphic'
       },
       {
-        name: 'Marilyn',
-        data_name: 'Marilyn',
+        name: 'Manson',
+        data_name: 'Manson',
         url: famouspplUrl + '/marilyn_manson_rose.png' ,
         type: 'graphic'
       },
@@ -207,6 +219,102 @@ var libraries = [
         name: 'Beavis',
         data_name: 'Beavis',
         url: famouspplUrl + '/beavis.png',
+        type: 'graphic'
+      },
+      {
+        name: 'Blinky',
+        data_name: 'Blinky',
+        url: famouspplUrl + '/8bit_blinky.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Britney',
+        data_name: 'Britney',
+        url: famouspplUrl + '/b_spears.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Batman',
+        data_name: 'Batman',
+        url: famouspplUrl + '/batman.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Clinton',
+        data_name: 'Clinton',
+        url: famouspplUrl + '/clinton_head.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'KimJongUn',
+        data_name: 'KimJongUn',
+        url: famouspplUrl + '/kim_jong_un.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'SenseiPutin',
+        data_name: 'SenseiPutin',
+        url: famouspplUrl + '/sensei_putin.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Miley',
+        data_name: 'Miley',
+        url: famouspplUrl + '/miley_cyrus.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'The Rock',
+        data_name: 'TheRock',
+        url: famouspplUrl + '/the_rock.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Megaman',
+        data_name: 'Megaman',
+        url: famouspplUrl + '/megaman.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'BiggieSmalls',
+        data_name: 'BiggieSmalls',
+        url: famouspplUrl + '/biggie_smalls.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Elway',
+        data_name: 'Elway',
+        url: famouspplUrl + '/elway.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Messi',
+        data_name: 'Messi',
+        url: famouspplUrl + '/messi.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Monroe',
+        data_name: 'Monroe',
+        url: famouspplUrl + '/monroe.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Obama',
+        data_name: 'Obama',
+        url: famouspplUrl + '/obama.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Yeezus',
+        data_name: 'Yeezus',
+        url: famouspplUrl + '/yeezus.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Yeezy',
+        data_name: 'Yeezy',
+        url: famouspplUrl + '/yeezy_yeezy.png' ,
         type: 'graphic'
       }
     ]
@@ -322,6 +430,12 @@ var libraries = [
         data_name: 'Spider',
         url: animalsUrl + '/spider.png',
         type: 'graphic'
+      },
+      {
+        name: 'Elephan',
+        data_name: 'Elephan',
+        url: animalsUrl + '/elephant_cutout.png' ,
+        type: 'graphic'
       }
     ]
   },
@@ -362,7 +476,61 @@ var libraries = [
       {
         name: 'NacoMeditation',
         data_name: 'NachoMeditation',
-        url: assortedUrl + '/pizza_meditation.png',
+        url: assortedUrl + '/nacho_meditation.png',
+        type: 'graphic'
+      },
+      {
+        name: 'Heart',
+        data_name: 'Heart',
+        url: assortedUrl + '/8bitheart.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Palm',
+        data_name: 'Palm',
+        url: assortedUrl + '/palm.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'TallPalm',
+        data_name: 'TallPalm',
+        url: assortedUrl + '/palm2.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Sword',
+        data_name: 'Sword',
+        url: assortedUrl + '/diamond_sword.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'AngryBride',
+        data_name: 'AngryBride',
+        url: assortedUrl + '/angry_bride.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Piano',
+        data_name: 'Piano',
+        url: assortedUrl + '/pianoletsduet.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'TallTree',
+        data_name: 'TallTree',
+        url: assortedUrl + '/tall_tree.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'Bonded',
+        data_name: 'Bonded',
+        url: assortedUrl + '/bond.png' ,
+        type: 'graphic'
+      },
+      {
+        name: 'ZebraLips',
+        data_name: 'ZebraLips',
+        url: assortedUrl + '/neon_zebra_lips.png' ,
         type: 'graphic'
       }
     ]

@@ -34,17 +34,16 @@ App.Views.UserComposition = Backbone.View.extend({
     }, {
       success: function(model, response) {
         App.currentComposition = model.attributes.id;
-        alert('Composition saved.');
       }, 
       error: function() {
         console.log('composition save failure');
-        alter('Unable to save.');
+        alert('Unable to save.');
       }
     });
 
-    setTimeout(function() { App.compositionGraphicsView.setAttributes() }, 100);
-    setTimeout(function() { App.compositionGraphicsCollection.setUrl() }, 100);
-    setTimeout(function() { App.compositionGraphicsView.save() }, 100);
+    setTimeout(function() { App.compositionGraphicsView.setAttributes() }, 400);
+    setTimeout(function() { App.compositionGraphicsCollection.setUrl() }, 400);
+    setTimeout(function() { App.compositionGraphicsView.save() }, 400);
 
     // $('#session').html(this.userTemplate());
   }
