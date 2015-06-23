@@ -23,10 +23,17 @@ App.Views.Sortable = Backbone.View.extend({
     var graphicDiv = graphicImg.parent();
 
     this.model.destroy();
-    graphicImg.remove();
-    graphicDiv.remove();
+    graphicDiv.parent().remove();
     
     this.deleteSortable(graphicId);
+
+    //Remove view from App.compositionViews
+    for (var i = 0; i < App.compositionViews.length; i++) {
+      var modelView = App.compositionViews[i].model.attributes
+      if (modelView.data_name === graphicId) {
+        App.compositionViews.splice(i, 1);
+      }
+    }
   },
 
   deleteSortable: function(graphicId) {
@@ -36,6 +43,8 @@ App.Views.Sortable = Backbone.View.extend({
 
   toggleGrayscale: function() {
     var graphicId = '#' + this.model.attributes.data_name;
+    var greyscaleGraphicId = '#greyscale-' + this.model.attributes.data_name;
     $(graphicId).toggleClass('greyscale');
+    $(greyscaleGraphicId).toggleClass('highlight');
   }
 });

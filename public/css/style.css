@@ -30,6 +30,20 @@ body {
   cursor: -webkit-grabbing;
 }
 
+.composition-text:hover {
+  cursor: move; 
+  cursor: move; 
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.composition-text:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
 .composition-background {
 /*  z-index: -1;
   display: inline-block;
