@@ -121,5 +121,4 @@ App.Views.CompositionGraphic = Backbone.View.extend({
   save: function() {
     this.model.save();
   }
-
 });

@@ -22,6 +22,8 @@ var App = {
   Collections: {},
   Views: {},
   layerOrder: [],
+  compositionViews: [],
+  compositionBackground: null,
   currentUser: null,
   currentComposition: null
 }

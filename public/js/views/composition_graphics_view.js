@@ -24,13 +24,16 @@ App.Views.CompositionGraphics = Backbone.View.extend({
     var element = '#cg-' + this.graphicCounter; 
     App.newCompositionTextView = new App.Views.CompositionText({ model: newModel });
     $(element).append(App.newCompositionTextView.el);
+    App.compositionViews.push(App.newCompositionTextView);
   },
 
   renderCompositionGraphic: function(newModel) {
     this.newGraphicEl();
-    var element = '#cg-' + this.graphicCounter 
+    var element = '#cg-' + this.graphicCounter; 
     App.newCompositionGraphicView = new App.Views.CompositionGraphic({ model: newModel });
     $(element).append(App.newCompositionGraphicView.el);
+    App.compositionViews.push(App.newCompositionGraphicView);
+
   },
 
   renderCompositionBackground: function(newModel) {
@@ -38,6 +41,8 @@ App.Views.CompositionGraphics = Backbone.View.extend({
       model: newModel
     });
     $('#background-view').append(App.newCompositionBackgroundView.el);
+    App.compositionViews.push(App.newCompositionBackgroundView);
+
   },
 
   newGraphicEl: function() {
@@ -49,15 +54,16 @@ App.Views.CompositionGraphics = Backbone.View.extend({
   },
 
   setAttributes: function() {
-    App.newCompositionBackgroundView.setAttributes();
-    App.newCompositionGraphicView.setAttributes();
-    App.newCompositionTextView.setAttributes();
+    for (var i = 0; i < App.compositionViews.length; i++) {
+      App.compositionViews[i].setAttributes();
+    }
+    this.save();
   },
 
   save: function() {
-    App.newCompositionBackgroundView.save();
-    App.newCompositionGraphicView.save();
-    App.newCompositionTextView.save();
-    alert('Composition saved.');
+    for (var i = 0; i < App.compositionViews.length; i++) {
+      App.compositionViews[i].save();
+    }
+    alert('Composition saved.')
   }
 });

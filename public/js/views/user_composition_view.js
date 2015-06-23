@@ -41,9 +41,11 @@ App.Views.UserComposition = Backbone.View.extend({
       }
     });
 
-    setTimeout(function() { App.compositionGraphicsView.setAttributes() }, 400);
+    // setTimeout(function() { App.compositionGraphicsView.setAttributes() }, 400);
     setTimeout(function() { App.compositionGraphicsCollection.setUrl() }, 400);
-    setTimeout(function() { App.compositionGraphicsView.save() }, 400);
+    setTimeout(function() { App.compositionGraphicsView.setAttributes() }, 400);
+   
+    // setTimeout(function() { App.compositionGraphicsView.save() }, 400);
 
     // $('#session').html(this.userTemplate());
   }
