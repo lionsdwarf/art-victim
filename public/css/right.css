@@ -1,7 +1,5 @@
-.column-right {
-  display: inline;
-  float: right;
-  width: 20%;
+ul {
+  padding: 0;
 }
 
 #layers {

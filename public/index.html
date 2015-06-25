@@ -74,54 +74,76 @@
 </head>
 <body>
 
-  <h1 id="heading" class="heading">Art Victim
-    <!-- <img src="graphics/logos/artvictim_bolt.png" alt="Art\Victim"> -->
-  </h1>
+  <div class="container">
 
-  <div id="home-view" class="column-center">
-    <div class="composition">
-      <div id="text-form">
-        <input type="text" name="input-text" id="input-text" placeholder="Add text..." maxlength="8"> <br>
-        <input type="submit" id="submit-text" value="Enter">
-      </div>
-      <img id="frame" src="/graphics/frames/antique_frame.png" alt="frame">
-        <div id="composition-view" style="pointer-events: all">
-          <div id="graphic-view">A</div>
-          <div id="background-view">
-            <div id="tips">  
-             <h3 id="tips-heading">Welcome. Here's what to do :</h3>
-              <h5>Select graphics from the libraries below</h5>
-              <h5>Add text to your composition</h5>
-              <h5>Sortables control layering here ----->>> </h5>
-              <h5>Log in to save compositions</h5>
-              <h5>Email functionality coming soon!</h5>
-              <h4 class="bottom-heading">Please create as you wish. Sincerely,</h4>
-              <!-- <h4 class="bottom-heading"></h4> -->
-              <h3 id="signature">Art Victim</h3>
-             
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
- 
-  <div id="layers" class="column-right">Layers
-    <!-- <div>Layers</div> -->
-    <div id="layer-list">
-      <ul id="sortables"></ul>
-    </div>
-  </div>
-
-  <div id="session" class="column-left">
-    <div id="login"></div>
-    <div id="logged-in"></div>
-    <div id="login-modal"></div>
-    <div id="signup-modal"></div>
-  </div>
-
-  <div id="graphics"></div>
+    <div class="header">    
+      <h1 id="heading" class="heading">Art Victim</h1>
+    </div> 
   
-  <div id="libraries"></div>
+    <div class="column-wrapper">
+  
+      <div class="column-left">   
+        <!-- column left -->
+        <div id="session">
+          <div id="login"></div>
+          <div id="logged-in"></div>
+          <div id="login-modal"></div>
+          <div id="signup-modal"></div>
+        </div>
+      </div>
+  
+      <div class="column-center">
+        <!-- column center -->
+        <div id="home-view">
+
+          <div class="composition-wrapper">
+          
+            <div id="text-form">
+              <input type="text" name="input-text" id="input-text" placeholder="Add text..." maxlength="8"> <br>
+              <input type="submit" id="submit-text" value="Enter">
+            </div>
+
+            <img id="frame" src="/graphics/frames/antique_frame.png" alt="frame">
+
+            <div id="composition-view" style="pointer-events: all">
+              <div id="graphic-view">A</div>
+              <div id="background-view">
+                <div id="tips">  
+                 <h3 id="tips-heading">Welcome. Here's what to do :</h3>
+                  <h5>Select graphics from the libraries below</h5>
+                  <h5>Add text to your composition</h5>
+                  <h5>Sortables control layering here ----->>> </h5>
+                  <h5>Log in to save compositions</h5>
+                  <h5>Email functionality coming soon!</h5>
+                  <h4 class="bottom-heading">Please create as you wish. Sincerely,</h4>
+                  <!-- <h4 class="bottom-heading"></h4> -->
+                  <h3 id="signature">Art Victim</h3>     
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- close composition wrapper -->
+        </div> <!-- close home view -->
+      </div> <!-- close column center -->
+  
+  
+      <div id="layers">
+        <!-- column right -->
+        Layers
+        <!-- <div>Layers</div> -->
+        <div id="layer-list">
+          <ul id="sortables"></ul>
+        </div>
+      </div> 
+  
+    </div> <!-- end main view -->
+  
+    <div class="graphic-libraries">
+      <ul id="libraries" class="tabs"></ul>
+    </div>
+
+  </div>  <!-- end container -->
+
 
   <div id="email-composition"></div>
 
@@ -192,8 +214,10 @@
   </template>
 
   <template id="library-template">
-    <section id="{{data_name}}-{{id}}">{{name}}</section> 
-      <div id="{{data_name}}-graphics"></div>
+    <li id="{{data_name}}-{{id}}"><a href=""></a>
+  
+      {{name}}</li> 
+      <div id="#{{data_name}}-graphics"></div>
   </template>
   
   <template id="load-template">

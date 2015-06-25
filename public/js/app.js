@@ -14,6 +14,8 @@ $(function() {
   App.homeView = new App.Views.Home;
 
   editCompositionGraphic();
+
+  $( "#tabs" ).tabs();
   
 });
 

@@ -1,9 +1,9 @@
-.column-left {
+/*.column-left {
   display: inline;
   float: left;
-  width: 20%;
+  width: 9em;
   font-size: 30px;
-}
+}*/
 
 .action-link {
   padding: 0.4em;

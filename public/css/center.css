@@ -1,7 +1,31 @@
+body, html {
+  width: 100%;
+  min-width: 100%;
+}
+
+.container {
+  width: 1440px;
+  min-width: 1440px;
+  margin: 0 auto;
+}
+
+.column-center, .column-left, .column-right {
+  float: left;
+}
+
+.column-left, .column-right {
+  width: 270px;
+}
+
 .column-center {
   display: inline-block;
-  width: 60%;
+  width: 900px;
   text-align: left;
+}
+
+.composition-wrapper {
+  position: relative;
+  height: 23em;
 }
 
 #frame {
@@ -10,38 +34,28 @@
   height: 700px;
   z-index: 100;
   position: absolute;
-  margin: auto;
-  top: 5.7em;
+  top: 0;
   left: 0;
-  right: 0;
 }
 
 #composition-view {
   width: 830px;
   height: 650px;
-  border-style: solid;
-  border-width: 1px;
-  margin-top: 0em;
-  margin-left:auto;
-  margin-right:auto;
-/*  margin: auto;
-  top: 8em;
-  left: 0;
-  right: 0;*/
+/*  border-style: solid;
+  border-width: 1px;*/
+  position: absolute;
+  left: 1.1em;
+  top: 0.8em;
 }
 
 #text-form {
   padding: 0.75em;
   margin-top: 16.5em;
-  width: 15em;
-  display: block;
   z-index: 110;
   position: absolute;
-  top: 8.5em;
+  top: 2.7em;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
   color: grey;
   text-align: center;
 }
@@ -63,7 +77,6 @@
   border-radius: 24px;
   background-color: white;
   color; grey;
-
 }
 
 #libraries {
