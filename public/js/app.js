@@ -15,7 +15,7 @@ $(function() {
 
   editCompositionGraphic();
 
-  $( "#tabs" ).tabs();
+  setTimeout(function() {$( '#tabs').tabs()}, 200);
   
 });
 

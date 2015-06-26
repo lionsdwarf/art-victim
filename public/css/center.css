@@ -79,11 +79,6 @@ body, html {
   color; grey;
 }
 
-#libraries {
-  top: 1em;
-  position: relative;
-}
-
 #text-view {
   position: relative;
   top: 0px;

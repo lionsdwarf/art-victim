@@ -5,12 +5,14 @@ ul {
 #layers {
   text-align: center;
   font-size: 30px;
+  height: 700px;
 }
 
 #layer-list {
   text-align: center;
-  overflow: scroll;
-  height: 730px;
+  /*overflow: scroll;*/
+  max-height: 650px;
+  overflow-y: scroll; 
   font-size: 25px;
 }
 
