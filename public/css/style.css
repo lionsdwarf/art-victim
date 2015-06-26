@@ -45,13 +45,6 @@ body {
 }
 
 .composition-background {
-/*  z-index: -1;
-  display: inline-block;
-  position: relative;
-  height: 560px;
-  max-width: 830px;
-  top: 0;*/
-
   z-index: -1;
   display: block;
   position: relative;
@@ -61,6 +54,16 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 1.5em;
+}
+
+.graphic-libraries {
+  width: 1020px;
+  margin: 0 auto;
+}
+
+#libraries {
+  width: 770px;
+  margin: 0 auto;
 }
 
 .library-graphic {
@@ -74,6 +77,29 @@ body {
   padding: 0.1em;
 }
 
+.ui-tabs {
+  border: none;
+}
 
+.ui-tabs-nav {
+  font-family: 'Pinyon Script', cursive;
+}
 
+.ui-tabs .ui-tabs-nav li {
+  /*background: lightgrey;*/
+  border: none;
+  padding-bottom: 0.5em;
+}
 
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  background: rgba(202, 195, 193, 0.3);
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+  border: none;
+  background: none;
+}
+.ui-widget-header {
+  border: none;
+  background: none;
+}
