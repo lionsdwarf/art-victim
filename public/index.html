@@ -195,7 +195,13 @@
   </template>
 
   <template id="composition-graphic-template">
-    <img id="{{data_name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="composition-graphic savable draggable" tyle="pointer-events: all">
+<!--     <div class="ui-wrapper ui-draggable ui-draggable-handle" style="position: relative; margin: 0px;"> -->
+    <!-- <div style="z-index: {{z_index}}"> -->
+      <img id="{{data_name}}" src="{{url}}" alt="{{name}}" data-url="{{url}}" class="composition-graphic savable draggable ui-resizable" style="pointer-events: all; margin: 0px; resize: none; position: static; zoom: 1; display: block; width: {{width}}; height: {{height}}; top: {{top}}; left: {{left}}">
+     <!--  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div>
+      <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div>
+      <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div> -->
+    <!-- </div> -->
   </template>
 
   <template id="composition-background-template">
