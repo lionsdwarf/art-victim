@@ -18,6 +18,8 @@
   <script src="/jslibraries/backbone-min.js"></script>
   <script src="/jslibraries/handlebars.min.js"></script>
   <script src="/jslibraries/jquery-ui.js"></script>
+  <script src="/jslibraries/jssor.js"></script>
+  <script src="/jslibraries/jssor.slider.min.js"></script>
 
 
 <!--    // <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -105,20 +107,17 @@
             </div>
 
             <img id="frame" src="/graphics/frames/antique_frame.png" alt="frame">
-
+            
             <div id="composition-view" style="pointer-events: all">
               <div id="graphic-view">A</div>
               <div id="background-view">
-                <div id="tips">  
-                 <h3 id="tips-heading">Welcome. Here's what to do :</h3>
-                  <h5>Select graphics from the libraries below</h5>
-                  <h5>Add text to your composition</h5>
-                  <h5>Sortables control layering here ----->>> </h5>
-                  <h5>Log in to save compositions</h5>
-                  <h5>Email functionality coming soon!</h5>
-                  <h4 class="bottom-heading">Please create as you wish. Sincerely,</h4>
-                  <!-- <h4 class="bottom-heading"></h4> -->
-                  <h3 id="signature">Art Victim</h3>     
+                <div id="slider-container" style="width: 605px; height: 435px; position: absolute; left: 4em; top: 3.7em;">
+                  <div u="slides" style="position: absolute; overflow: hidden; width: 600px; height: 435px;">
+                    <div><img u="image" src="graphics/slides/art.png" /></div>
+                    <div><img u="image" src="graphics/slides/ecards.png" /></div>
+                    <div><img u="image" src="graphics/slides/whatever.png" /></div>
+                    <div><img u="image" src="graphics/slides/create.png" /></div>
+                  </div>
                 </div>
               </div>
             </div>

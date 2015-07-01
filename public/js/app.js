@@ -17,6 +17,9 @@ $(function() {
 
   setTimeout(function() {$( '#tabs').tabs()}, 200);
   
+        var options = { $AutoPlay: true };
+        var jssor_slider1 = new $JssorSlider$('slider-container', options);
+  
 });
 
 var App = {
