@@ -91,7 +91,8 @@ body, html {
   height: 650px;
 }
 
-#graphic-view {
+#font-load {
+  display: none;
   font-family: 'Special Elite', cursive;
   color: rgba(1, 1, 1, 0);
 }

@@ -32,13 +32,17 @@ App.Views.CompositionGraphic = Backbone.View.extend({
     var width = this.model.attributes.width + 'px';
     var left = this.model.attributes.left + 'px';
     var top = this.model.attributes.top + 'px';
+    var zIndex = this.model.attributes.z_index;
 
     graphicImg
       .resizable()
-      .css({'height' : height, 'width' : width});
+      .css({
+        'height' : height, 
+        'width' : width,
+        'z-index' : zIndex
+      });
 
     var graphicDiv = graphicImg.parent();
-
     graphicDiv
       .draggable({
         cursor: 'crosshair',
@@ -49,13 +53,15 @@ App.Views.CompositionGraphic = Backbone.View.extend({
         'width' : width, 
         'left' : left, 
         'top' : top,
+        'z-index' : zIndex,
         'overflow' : 'visible'
       });
+      debugger;
 
     var graphicDivId = 'div-' + graphicId;
     graphicDiv.attr('id', graphicDivId);
 
-    this.setZIndex();
+    // this.setZIndex();
   },
 
   endowNew: function() {
