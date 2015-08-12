@@ -33,7 +33,6 @@ App.Views.CompositionGraphics = Backbone.View.extend({
     App.newCompositionGraphicView = new App.Views.CompositionGraphic({ model: newModel });
     $(element).append(App.newCompositionGraphicView.el);
     App.compositionViews.push(App.newCompositionGraphicView);
-
   },
 
   renderCompositionBackground: function(newModel) {
@@ -42,7 +41,6 @@ App.Views.CompositionGraphics = Backbone.View.extend({
     });
     $('#background-view').append(App.newCompositionBackgroundView.el);
     App.compositionViews.push(App.newCompositionBackgroundView);
-
   },
 
   newGraphicEl: function() {
@@ -64,6 +62,6 @@ App.Views.CompositionGraphics = Backbone.View.extend({
     for (var i = 0; i < App.compositionViews.length; i++) {
       App.compositionViews[i].save();
     }
-    alert('Composition saved.')
+    alert('Composition saved.');
   }
 });
